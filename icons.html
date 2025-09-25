@@ -13,10 +13,17 @@
     }
     *{box-sizing:border-box}
     html,body{height:100%}
+
+    /* Full-page background + base typography */
     body{
-      margin:0; background:linear-gradient(180deg,#0b1016,#0f1115 55%,#0b0f14);
-      color:var(--text); font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial;
+      margin:0; min-height:100vh; display:flex; flex-direction:column;
+      background:url("imgs/Icon.png") no-repeat center center fixed;
+      background-size:cover; position:relative; color:var(--text);
+      font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial;
     }
+    /* Dark overlay for readability */
+    body::before{content:""; position:fixed; inset:0; background:rgba(15,17,21,.6); z-index:-1;}
+
     .wrap{max-width:1200px;margin:28px auto;padding:0 14px}
 
     /* Header */
@@ -46,38 +53,25 @@
     /* Grid & card */
     .results{margin-top:12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
     .card{
-      background:var(--card);
-      border:1px solid var(--ring);
-      border-radius:16px;
-      padding:14px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      min-height:220px;
-      box-shadow:0 6px 16px rgba(0,0,0,0.25);
-      transition:transform .2s ease, box-shadow .2s ease;
+      background:var(--card); border:1px solid var(--ring); border-radius:16px; padding:14px;
+      display:flex; flex-direction:column; gap:12px; min-height:220px;
+      box-shadow:0 6px 16px rgba(0,0,0,.25); transition:transform .2s, box-shadow .2s;
     }
-    .card:hover{ transform:translateY(-3px); box-shadow:0 10px 22px rgba(0,0,0,0.35); }
+    .card:hover{ transform:translateY(-3px); box-shadow:0 10px 22px rgba(0,0,0,.35); }
 
-    .thumb{
-      width:100%;aspect-ratio:16/9;
-      background:#0e131c;border:1px solid var(--ring);border-radius:10px;
-      display:flex;align-items:center;justify-content:center;overflow:hidden
-    }
-    .thumb img{width:100%;height:100%;object-fit:contain}
+    .thumb{width:100%; aspect-ratio:16/9; background:#0e131c; border:1px solid var(--ring); border-radius:10px;
+      display:flex; align-items:center; justify-content:center; overflow:hidden}
+    .thumb img{width:100%; height:100%; object-fit:contain}
 
     .meta{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;min-height:42px}
-    .title{
-      font-weight:700;font-size:14px;line-height:1.2;
-      display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;
-      text-overflow:ellipsis;
-    }
-
+    .title{font-weight:700;font-size:14px;line-height:1.2;
+      display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;text-overflow:ellipsis;}
     .chip{font:700 11px ui-monospace,Menlo,Consolas,monospace;color:var(--accent-2);
       background:var(--chip);border:1px solid var(--chip-ring);padding:4px 8px;border-radius:999px;white-space:nowrap}
 
     .actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:auto}
     .actions .btn{display:flex;align-items:center;justify-content:center;gap:6px}
+    [data-action="market"]{cursor:pointer;user-select:none}
 
     .loading{padding:16px;text-align:center;color:var(--muted)}
     .error{color:#ffb3ba;background:#2a1010;border:1px solid #552222;padding:10px 12px;border-radius:10px;margin-top:12px}
@@ -110,138 +104,87 @@
 
     /* ===== Corner Home Button ===== */
     .corner-home{
-      position:fixed;top:16px;left:16px;z-index:1000;
-      display:inline-flex;align-items:center;gap:8px;
-      padding:10px 12px;border-radius:999px;
-      background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+      position:fixed;top:16px;left:16px;z-index:1000; display:inline-flex;align-items:center;gap:8px;
+      padding:10px 12px;border-radius:999px; background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
       border:1px solid var(--ring); color:var(--text); text-decoration:none; font-weight:700;
       box-shadow:0 8px 24px rgba(0,0,0,.35); backdrop-filter:blur(8px);
-      transform:translateY(-8px); opacity:0;
-      animation:homeIn .45s cubic-bezier(.2,.8,.2,1) .2s forwards;
+      transform:translateY(-8px); opacity:0; animation:homeIn .45s cubic-bezier(.2,.8,.2,1) .2s forwards;
       transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
     }
-    .corner-home:hover{
-      transform:translateY(-2px);
-      border-color:var(--accent);
+    .corner-home:hover{transform:translateY(-2px); border-color:var(--accent);
       background:linear-gradient(180deg,rgba(40,200,255,.16),rgba(40,200,255,.06));
-      box-shadow:0 12px 28px rgba(0,0,0,.45),0 0 0 2px rgba(40,200,255,.15) inset;
-    }
+      box-shadow:0 12px 28px rgba(0,0,0,.45),0 0 0 2px rgba(40,200,255,.15) inset;}
     .corner-home i{font-size:14px}
     .corner-home:active{transform:translateY(0)}
     .corner-home:focus-visible{outline:none; box-shadow:0 0 0 3px rgba(40,200,255,.5)}
-    @media (max-width:640px){
-      .corner-home{padding:10px}
-      .corner-home .label{display:none}
-    }
-    @media (prefers-reduced-motion:reduce){
-      .corner-home{animation:none; transform:none; opacity:1}
-    }
-    @keyframes homeIn{
-      from{transform:translateY(-8px);opacity:0}
-      to{transform:translateY(0);opacity:1}
-    }
-    /* Full-page background */
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background: url("imgs/Icon.png") no-repeat center center fixed;
-  background-size: cover;
-  position: relative;
-  color: var(--text);
-  font-family: Inter, system-ui, Segoe UI, Roboto, Helvetica, Arial;
-}
+    @media (max-width:640px){.corner-home{padding:10px}.corner-home .label{display:none}}
+    @keyframes homeIn{from{transform:translateY(-8px);opacity:0} to{transform:translateY(0);opacity:1}}
 
-/* Dark overlay for readability */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(15, 17, 21, 0.6); /* adjust 0.6 for more/less dim */
-  z-index: -1; /* sits behind content */
-}
+    /* ---------- Logo animations ---------- */
+    .logo-wrap{position:relative;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px}
+    .logo-wrap::after{content:"";position:absolute;inset:-6px;border-radius:12px;
+      background:radial-gradient(ellipse at center,rgba(40,200,255,.35) 0%,rgba(40,200,255,.12) 45%,rgba(40,200,255,0) 70%);
+      filter:blur(6px);opacity:0;animation:pulse 2.8s ease-out infinite 1s;pointer-events:none}
+    .site-header .logo{width:38px;height:38px;border-radius:10px;display:block;opacity:0;transform:translateY(6px) scale(.88);
+      animation:logo-in .6s cubic-bezier(.2,.9,.25,1.2) .05s forwards, float 7s ease-in-out 1s infinite;
+      filter:drop-shadow(0 2px 10px rgba(0,0,0,.25)) drop-shadow(0 0 6px rgba(40,200,255,.18));
+      transition:transform .2s ease, filter .2s ease}
+    .site-header .logo:hover{transform:translateY(-1px) scale(1.06);
+      filter:drop-shadow(0 4px 14px rgba(0,0,0,.3)) drop-shadow(0 0 10px rgba(40,200,255,.28))}
+    @keyframes logo-in{to{opacity:1;transform:translateY(0) scale(1)}}
+    @keyframes float{0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px)}}
+    @keyframes pulse{0%{transform:scale(.92);opacity:.55} 60%{transform:scale(1.15);opacity:.18} 100%{transform:scale(1.25);opacity:0}}
 
-/* ---------- Logo animations ---------- */
-.logo-wrap {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-}
+    /* Toast */
+    .ml-toast{
+      position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);
+      padding:10px 14px;background:rgba(20,24,32,.9);color:#e9eefc;border:1px solid rgba(255,255,255,.08);
+      border-radius:10px;font:600 14px/1.1 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      box-shadow:0 10px 30px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .18s, transform .18s;z-index:9999;white-space:nowrap}
+    .ml-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
-/* subtle glow pulse behind the logo */
-.logo-wrap::after {
-  content: "";
-  position: absolute;
-  inset: -6px;
-  border-radius: 12px;
-  background: radial-gradient(ellipse at center,
-              rgba(40, 200, 255, 0.35) 0%,
-              rgba(40, 200, 255, 0.12) 45%,
-              rgba(40, 200, 255, 0) 70%);
-  filter: blur(6px);
-  opacity: 0;
-  animation: pulse 2.8s ease-out infinite 1s;
-  pointer-events: none;
-}
+    /* ---------- Right Sidebar: Live Status ---------- */
+    .embed-panel{position:fixed;top:96px;right:24px;width:420px;max-width:35vw;
+      background:rgba(20,24,32,.78);border:1px solid var(--ring);border-radius:14px;
+      box-shadow:var(--shadow);backdrop-filter:blur(10px);padding:12px;z-index:50}
+    .tabbar{display:flex;gap:6px;margin-bottom:10px}
+    .tab-btn{flex:1;cursor:pointer;border:1px solid var(--ring);background:var(--card);color:var(--text);
+      padding:8px 10px;border-radius:10px;font-weight:700;text-align:center}
+    .tab-btn.active{border-color:#5da7ff;background:linear-gradient(180deg,#2ad1ff1a,#1593ff1a)}
+    .embed-card{background:#111723;border:1px solid #2a3550;border-radius:12px;padding:12px;display:flex;gap:10px}
+    .embed-accent{width:4px;border-radius:6px;background:linear-gradient(180deg,#5865F2,#15a7ff)}
+    .embed-body{flex:1}
+    .embed-title{font-weight:800;font-size:15px;margin-bottom:6px}
+    .embed-desc{color:#c7d0e3;font-size:14px;line-height:1.35}
+    .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+    .stat{background:#0e1624;border:1px solid #24314b;border-radius:8px;padding:8px}
+    .stat .k{font-size:11px;color:#9fb6ff;font-weight:700;margin-bottom:2px}
+    .stat .v{font-size:16px;font-weight:800}
+    .avatars{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+    .avatars img{width:24px;height:24px;border-radius:50%;border:1px solid #24314b}
+    .embed-actions{display:flex;gap:8px;margin-top:10px}
+    .embed-actions .btn{flex:1}
+    .section{display:none}
+    .section.active{display:block}
+    @media (max-width:1400px){.embed-panel{display:none}}
 
-.site-header .logo {
-  width: 38px;
-  height: 38px;
+    /* Server banner/logo */
+.server-banner {
+  width: 100%;
+  margin-bottom: 12px;
   border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--ring);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+}
+.server-banner img {
+  width: 100%;
+  height: auto;
   display: block;
-  /* entrance + idle float */
-  opacity: 0;
-  transform: translateY(6px) scale(0.88);
-  animation:
-    logo-in .6s cubic-bezier(.2,.9,.25,1.2) .05s forwards,
-    float 7s ease-in-out 1s infinite;
-  /* crisp + glow */
-  filter: drop-shadow(0 2px 10px rgba(0,0,0,.25))
-          drop-shadow(0 0 6px rgba(40,200,255,.18));
-  transition: transform .2s ease, filter .2s ease;
+  object-fit: cover;
 }
 
-.site-header .logo:hover {
-  transform: translateY(-1px) scale(1.06);
-  filter: drop-shadow(0 4px 14px rgba(0,0,0,.3))
-          drop-shadow(0 0 10px rgba(40,200,255,.28));
-}
 
-/* keyframes */
-@keyframes logo-in {
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0) }
-  50%      { transform: translateY(-3px) }
-}
-
-/* pulse ring behind logo */
-@keyframes pulse {
-  0%   { transform: scale(.92); opacity: .55; }
-  60%  { transform: scale(1.15); opacity: .18; }
-  100% { transform: scale(1.25); opacity: 0; }
-}
-
-/* Respect accessibility: reduce motion */
-@media (prefers-reduced-motion: reduce) {
-  .site-header .logo,
-  .logo-wrap::after {
-    animation: none !important;
-    opacity: 1;
-    transform: none;
-  }
-}
-
-    
   </style>
 </head>
 <body>
@@ -252,14 +195,13 @@ body::before {
   </a>
 
   <div class="wrap">
-<header class="site-header">
-  <span class="logo-wrap">
-    <img class="logo" src="imgs/PF-Sketch.png" alt="logo"
-         onerror="this.src='https://avatars.githubusercontent.com/u/9919?s=80&v=4'">
-  </span>
-  <h1>Moonlight Icons <span class="badge" id="count-badge">loading…</span></h1>
-</header>
-
+    <header class="site-header">
+      <span class="logo-wrap">
+        <img class="logo" src="imgs/PF-Sketch.png" alt="logo"
+             onerror="this.src='https://avatars.githubusercontent.com/u/9919?s=80&v=4'">
+      </span>
+      <h1>Moonlight Icons <span class="badge" id="count-badge">loading…</span></h1>
+    </header>
 
     <div class="panel">
       <div class="controls">
@@ -294,13 +236,84 @@ body::before {
         </div>
       </div>
     </div>
+
+    <!-- Right-side Live Status -->
+    <aside class="embed-panel" id="statusPanel">
+      <div class="tabbar">
+        <button class="tab-btn active" data-tab="discord">Discord</button>
+        <button class="tab-btn" data-tab="server">Server</button>
+      </div>
+
+      <!-- Discord section -->
+      <section class="section active" id="sec-discord">
+        <div class="embed-card">
+          <div class="embed-accent"></div>
+          <div class="embed-body">
+            <div class="embed-title" id="dc-name">Discord — Loading…</div>
+            <div class="embed-desc" id="dc-desc">Fetching online count and members…</div>
+
+            <div class="stat-grid">
+              <div class="stat">
+                <div class="k">Online now</div>
+                <div class="v" id="dc-online">—</div>
+              </div>
+              <div class="stat">
+                <div class="k">Owner</div>
+                <div class="v" id="dc-invite">—</div>
+              </div>
+            </div>
+
+            <div class="avatars" id="dc-avatars"></div>
+
+            <div class="embed-actions">
+              <a class="btn small" id="dc-open" href="#" target="_blank" rel="noreferrer">Join Server</a>
+              <button class="btn small" id="dc-copy">Copy Invite</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Game server section (optional; uses your own status JSON) -->
+<section class="section" id="sec-server">
+  <div class="embed-card">
+    <div class="embed-accent"></div>
+    <div class="embed-body">
+
+      <!-- Banner/logo -->
+      <div class="server-banner">
+        <img src="imgs\logo-menu.png" alt="Moonlight Logo">
+      </div>
+
+      <div class="embed-title" id="sv-name">Server — Loading…</div>
+      <div class="embed-desc" id="sv-desc">Live player count, map, queue.</div>
+
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="k">Players</div>
+          <div class="v" id="sv-players">—</div>
+        </div>
+        <div class="stat">
+          <div class="k">Map</div>
+          <div class="v" id="sv-map">—</div>
+        </div>
+      </div>
+
+      <div class="embed-actions">
+        <button class="btn small" id="sv-refresh">Refresh</button>
+        <button class="btn small" id="sv-copy">Copy IP</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+    </aside>
   </div>
 
   <script>
+    /* ===== Utilities ===== */
     const $ = (id)=>document.getElementById(id);
     const resultsEl=$('results'), statusEl=$('status'), errorEl=$('error'),
           qEl=$('q'), countBadge=$('count-badge');
-
     const pagerEl=$('pager'), rangeText=$('rangeText'), totalText=$('totalText'),
           pageInput=$('pageInput'), pageCountEl=$('pageCount'),
           firstBtn=$('firstPage'), prevBtn=$('prevPage'), nextBtn=$('nextPage'), lastBtn=$('lastPage');
@@ -308,17 +321,15 @@ body::before {
     let ITEMS=[], FILTERED=[], PAGE_SIZE=50, currentPage=1, pageCount=1;
 
     const debounce=(fn,ms=150)=>{ let t; return(...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a),ms); }; };
-    // fixed mapping (removed duplicate '<' key)
     const escapeHTML=(s)=>String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 
-    // Robust name extractor
+    /* ===== Data load & render ===== */
     function getDisplayName(val){
       try{
         if (typeof val === "string"){
           let s = val.trim();
           if ((s.startsWith("{") && s.endsWith("}")) || (s.startsWith("[") && s.endsWith("]"))){
-            const obj = JSON.parse(s);
-            return getDisplayName(obj) || s;
+            const obj = JSON.parse(s); return getDisplayName(obj) || s;
           }
           const m = s.match(/"?\bItemName\b"?\s*:\s*"?([^"]+)"?/i);
           if (m) return m[1].trim();
@@ -358,6 +369,10 @@ body::before {
         resultsEl.style.display="grid";
         pagerEl.style.display="flex";
         computeAndRenderPage(1);
+
+        if (typeof updateDiscordEmbed === 'function') updateDiscordEmbed(); // old embed
+if (typeof fetchDiscord === 'function') fetchDiscord();             // live-status embed
+
       }catch(e){
         statusEl.style.display="none";
         errorEl.style.display="block";
@@ -387,9 +402,8 @@ body::before {
     function render(list){
       resultsEl.innerHTML = list.map(({id,name,url})=>{
         const clean = name || id;
-        const wording = `${clean} (ID: ${id})`;
         return `
-          <div class="card">
+          <div class="card" data-item-id="${id}">
             <div class="thumb">
               <img src="${url}" alt="${escapeHTML(clean)}" loading="lazy"
                    onerror="this.closest('.card')?.remove()">
@@ -402,9 +416,12 @@ body::before {
               <button class="btn small" onclick="copy('${url}')" title="Copy image URL">
                 <i class="fa-regular fa-copy"></i><span>URL</span>
               </button>
-              <button class="btn small" onclick="copy('${wording.replaceAll("'","\\'")}')" title="Copy Name + ID">
-                ${escapeHTML(wording)}
+
+              <button class="btn small" data-action="market" title="Copy /market add {id}">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span>/market add</span>
               </button>
+
               <a class="btn small" href="${url}" target="_blank" rel="noreferrer" title="Open image">
                 <i class="fa-solid fa-up-right-from-square"></i><span>Open</span>
               </a>
@@ -427,15 +444,9 @@ body::before {
     }
     let toastEl;
     function toast(msg){
-      if(!toastEl){
-        toastEl=document.createElement('div');
-        Object.assign(toastEl.style,{position:'fixed',bottom:'24px',left:'50%',transform:'translateX(-50%)',
-          background:'#101625',color:'#e9eef5',border:'1px solid #2b3347',borderRadius:'10px',
-          padding:'10px 14px',zIndex:9999,boxShadow:'0 8px 28px rgba(0,0,0,.4)',fontWeight:'700'});
-        document.body.appendChild(toastEl);
-      }
-      toastEl.textContent=msg; toastEl.style.opacity='1';
-      setTimeout(()=>{ toastEl.style.transition='opacity .35s'; toastEl.style.opacity='0'; },900);
+      if(!toastEl){ toastEl=document.createElement('div'); toastEl.className='ml-toast'; document.body.appendChild(toastEl); }
+      toastEl.textContent=msg; toastEl.getBoundingClientRect(); toastEl.classList.add('show');
+      setTimeout(()=>toastEl.classList.remove('show'), 1200);
     }
 
     function bindPager(){
@@ -450,7 +461,103 @@ body::before {
       });
     }
 
-    // Events
+    /* ===== Right-side Status (Discord + Server) ===== */
+    const DISCORD_GUILD_ID = '1124512596687597678'; // <--- set this
+    const SERVER_STATUS_URL = 'https://unturned-servers.net/api/?object=servers&element=detail&key=CimDF1IOUBr1x5EdZzZcXpFu2GSaEtWcJ1Q';
+
+
+    // Tabs
+    (function tabs(){
+      const panel = document.getElementById('statusPanel');
+      if(!panel) return;
+      panel.addEventListener('click', (e)=>{
+        const btn = e.target.closest('.tab-btn'); if(!btn) return;
+        panel.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        const tab = btn.dataset.tab;
+        panel.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+        panel.querySelector('#sec-'+tab).classList.add('active');
+      });
+    })();
+
+    // Discord widget fetch (requires "Enable Server Widget" in Discord settings)
+    async function fetchDiscord(){
+      if(!DISCORD_GUILD_ID) return;
+      try{
+        const res = await fetch(`https://discord.com/api/guilds/${DISCORD_GUILD_ID}/widget.json`, { cache: 'no-store' });
+        if(!res.ok) throw new Error('Widget disabled or wrong guild ID');
+        const data = await res.json();
+
+        $('dc-name').textContent = data.name || 'Discord';
+        $('dc-online').textContent = (data.presence_count ?? data.members?.length ?? 0).toLocaleString();
+        $('dc-invite').textContent = data.instant_invite ? 'Available' : 'Mochi & Bush';
+        $('dc-desc').textContent = 'Live members online (auto-updates).';
+
+        const av = $('dc-avatars'); av.innerHTML = '';
+        (data.members || []).slice(0,12).forEach(m=>{
+          const img = document.createElement('img'); img.src = m.avatar_url; img.alt = m.username; av.appendChild(img);
+        });
+
+        const invite = data.instant_invite || '#';
+        $('dc-open').href = invite;
+        $('dc-copy').onclick = async ()=>{ try{ await navigator.clipboard.writeText(invite); toast('Invite copied!'); } catch{ toast('Could not copy'); } };
+      }catch{
+        $('dc-name').textContent = 'Discord';
+        $('dc-desc').textContent = 'Widget disabled or wrong Guild ID. Enable it in Server Settings → Widget.';
+        $('dc-online').textContent = '—'; $('dc-invite').textContent = '—';
+      }
+    }
+
+    // Optional: Game server status
+    async function fetchServerStatus(manual=false){
+      if(!SERVER_STATUS_URL){ if(manual) toast('Set SERVER_STATUS_URL first'); return; }
+      try{
+        const res = await fetch(SERVER_STATUS_URL, { cache: 'no-store' });
+        const s = await res.json();
+        $('sv-name').textContent = s.name || 'Game Server';
+        $('sv-players').textContent = (s.players ?? 0) + (s.maxPlayers ? ` / ${s.maxPlayers}` : '');
+        $('sv-map').textContent = s.map || '—';
+        const ip = [s.ip, s.port].filter(Boolean).join(':');
+        $('sv-copy').onclick = async ()=>{ try{ await navigator.clipboard.writeText(ip); toast('IP copied!'); } catch{ toast('Could not copy'); } };
+      }catch{
+        $('sv-name').textContent = 'Server';
+        $('sv-players').textContent = '—';
+        $('sv-map').textContent = '—';
+        if(manual) toast('Server status unavailable');
+      }
+    }
+    $('sv-refresh')?.addEventListener('click', ()=>fetchServerStatus(true));
+
+    // Middle button: copy /market add {id}
+    (()=>{
+      document.addEventListener('click', async (ev) => {
+        const trigger = ev.target.closest('[data-action="market"]');
+        if (!trigger) return;
+        const card = trigger.closest('[data-item-id]');
+        const itemId = card?.dataset?.itemId?.trim();
+        if (!itemId){ showToast('Missing item ID'); return; }
+        const cmd = `/market add ${itemId}`;
+        try { await navigator.clipboard.writeText(cmd); showToast(`Copied “${cmd}”`); }
+        catch {
+          try {
+            const ta = document.createElement('textarea'); ta.value = cmd; ta.setAttribute('readonly','');
+            ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta);
+            ta.select(); document.execCommand('copy'); ta.remove(); showToast(`Copied “${cmd}”`);
+          } catch { showToast('Copy failed'); }
+        }
+      });
+      let toastTimer;
+      function showToast(message='Copied'){
+        clearTimeout(toastTimer);
+        let t = document.querySelector('.ml-toast');
+        if (!t){ t = document.createElement('div'); t.className='ml-toast'; document.body.appendChild(t); }
+        t.textContent = message; t.getBoundingClientRect(); t.classList.add('show');
+        toastTimer = setTimeout(()=>t.classList.remove('show'), 1600);
+      }
+      window.showToast = showToast; // expose for reuse
+    })();
+
+    /* ===== Wire up events and load ===== */
     qEl.addEventListener('input', doSearchDebounced);
     qEl.addEventListener('paste', ()=>setTimeout(()=>{ qEl.value=parseQuery(qEl.value); doSearch(); },0));
     $('clear').addEventListener('click', ()=>{ qEl.value=''; doSearch(); qEl.focus(); });
@@ -464,6 +571,10 @@ body::before {
 
     bindPager();
     loadIndex();
+
+    // Live status loops
+    fetchDiscord(); setInterval(fetchDiscord, 30_000);
+    fetchServerStatus(); if(SERVER_STATUS_URL) setInterval(fetchServerStatus, 15_000);
   </script>
 </body>
 </html>

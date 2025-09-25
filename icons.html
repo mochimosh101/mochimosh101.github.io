@@ -45,43 +45,33 @@
 
     /* Grid & card */
     .results{margin-top:12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
-    .card{background:var(--card);border:1px solid var(--ring);border-radius:14px;padding:12px;
-      display:flex;flex-direction:column;gap:10px;transition:transform .12s ease, box-shadow .12s ease}
-    .card:hover{transform:translateY(-2px); box-shadow:0 18px 55px rgba(0,0,0,.4)}
-    .thumb{width:100%;aspect-ratio:16/9;background:#0e131c;border:1px solid var(--ring);border-radius:10px;
-      display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .card{
+      background:var(--card);
+      border:1px solid var(--ring);
+      border-radius:16px;
+      padding:14px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      min-height:220px;
+      box-shadow:0 6px 16px rgba(0,0,0,0.25);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover{ transform:translateY(-3px); box-shadow:0 10px 22px rgba(0,0,0,0.35); }
+
+    .thumb{
+      width:100%;aspect-ratio:16/9;
+      background:#0e131c;border:1px solid var(--ring);border-radius:10px;
+      display:flex;align-items:center;justify-content:center;overflow:hidden
+    }
     .thumb img{width:100%;height:100%;object-fit:contain}
 
     .meta{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;min-height:42px}
-.card {
-  background: var(--card);
-  border: 1px solid var(--ring);
-  border-radius: 16px;
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  min-height: 220px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.35);
-}
-
-@media (max-width: 600px) {
-  .results {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  }
-
-  .title {
-    font-size: 13px;
-    line-clamp: 1;
-    -webkit-line-clamp: 1;
-  }
-}
+    .title{
+      font-weight:700;font-size:14px;line-height:1.2;
+      display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;
+      text-overflow:ellipsis;
+    }
 
     .chip{font:700 11px ui-monospace,Menlo,Consolas,monospace;color:var(--accent-2);
       background:var(--chip);border:1px solid var(--chip-ring);padding:4px 8px;border-radius:999px;white-space:nowrap}
@@ -108,17 +98,62 @@
       .actions{grid-template-columns:1fr 1fr}
       .actions .btn:last-child{grid-column:1 / -1}
     }
+    @media (max-width:600px){
+      .results{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+      .title{-webkit-line-clamp:1}
+    }
     @media (max-width:520px){
       h1{font-size:20px}
       .btn.accent{font-size:13px}
       .pager{flex-direction:column;gap:8px}
     }
+
+    /* ===== Corner Home Button ===== */
+    .corner-home{
+      position:fixed;top:16px;left:16px;z-index:1000;
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 12px;border-radius:999px;
+      background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+      border:1px solid var(--ring); color:var(--text); text-decoration:none; font-weight:700;
+      box-shadow:0 8px 24px rgba(0,0,0,.35); backdrop-filter:blur(8px);
+      transform:translateY(-8px); opacity:0;
+      animation:homeIn .45s cubic-bezier(.2,.8,.2,1) .2s forwards;
+      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .corner-home:hover{
+      transform:translateY(-2px);
+      border-color:var(--accent);
+      background:linear-gradient(180deg,rgba(40,200,255,.16),rgba(40,200,255,.06));
+      box-shadow:0 12px 28px rgba(0,0,0,.45),0 0 0 2px rgba(40,200,255,.15) inset;
+    }
+    .corner-home i{font-size:14px}
+    .corner-home:active{transform:translateY(0)}
+    .corner-home:focus-visible{outline:none; box-shadow:0 0 0 3px rgba(40,200,255,.5)}
+    @media (max-width:640px){
+      .corner-home{padding:10px}
+      .corner-home .label{display:none}
+    }
+    @media (prefers-reduced-motion:reduce){
+      .corner-home{animation:none; transform:none; opacity:1}
+    }
+    @keyframes homeIn{
+      from{transform:translateY(-8px);opacity:0}
+      to{transform:translateY(0);opacity:1}
+    }
   </style>
 </head>
 <body>
+
+  <!-- Corner Home Button -->
+  <a href="https://mochimosh101.github.io/" class="corner-home" aria-label="Go to Home">
+    <i class="fa-solid fa-house"></i><span class="label">Home</span>
+  </a>
+
   <div class="wrap">
-    <header>
-      <img src="imgs/moonlight.png" alt="logo" onerror="this.src='https://avatars.githubusercontent.com/u/9919?s=80&v=4'">
+    <header class="site-header">
+      <img src="https://raw.githubusercontent.com/mochimosh101/Icons/main/1001.png"
+           alt="logo"
+           onerror="this.src='https://avatars.githubusercontent.com/u/9919?s=80&v=4'">
       <h1>Moonlight Icons <span class="badge" id="count-badge">loading…</span></h1>
     </header>
 
@@ -169,28 +204,25 @@
     let ITEMS=[], FILTERED=[], PAGE_SIZE=50, currentPage=1, pageCount=1;
 
     const debounce=(fn,ms=150)=>{ let t; return(...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a),ms); }; };
-    const escapeHTML=(s)=>String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;","<": "&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+    // fixed mapping (removed duplicate '<' key)
+    const escapeHTML=(s)=>String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 
-    // Robust name extractor: handles strings, JSON-like strings, objects with ItemName/name/title/etc.
+    // Robust name extractor
     function getDisplayName(val){
       try{
         if (typeof val === "string"){
           let s = val.trim();
-          // If it's a stringified JSON object, parse it
           if ((s.startsWith("{") && s.endsWith("}")) || (s.startsWith("[") && s.endsWith("]"))){
             const obj = JSON.parse(s);
             return getDisplayName(obj) || s;
           }
-          // If the string literally contains ItemName: "Name"
           const m = s.match(/"?\bItemName\b"?\s*:\s*"?([^"]+)"?/i);
           if (m) return m[1].trim();
-          // Strip wrapping quotes
           return s.replace(/^"+|"+$/g,'').trim();
         }
         if (val && typeof val === "object"){
           const keys = ["ItemName","itemName","Name","name","title","Title","displayName","DisplayName","item"];
           for (const k of keys){ if (val[k]) return getDisplayName(val[k]); }
-          // fallback: first string value in the object
           for (const k in val){ if (typeof val[k]==="string") return val[k].trim(); }
         }
       }catch(_){}
@@ -207,8 +239,6 @@
     async function loadIndex(){
       try{
         let names={}; try{ names = await (await fetch("items.json?t="+Date.now())).json(); } catch{ names={}; }
-
-        // Use IDs present in names.json if any; otherwise fallback (will auto-hide missing imgs when opened)
         const idsFromNames = Object.keys(names).map(k=>parseInt(k,10)).filter(n=>!isNaN(n)).sort((a,b)=>a-b);
         const ids = idsFromNames.length ? idsFromNames : Array.from({length:1200},(_,i)=>i+1);
 

@@ -140,22 +140,126 @@
       from{transform:translateY(-8px);opacity:0}
       to{transform:translateY(0);opacity:1}
     }
+    /* Full-page background */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: url("imgs/Icon.png") no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  color: var(--text);
+  font-family: Inter, system-ui, Segoe UI, Roboto, Helvetica, Arial;
+}
+
+/* Dark overlay for readability */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15, 17, 21, 0.6); /* adjust 0.6 for more/less dim */
+  z-index: -1; /* sits behind content */
+}
+
+/* ---------- Logo animations ---------- */
+.logo-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+/* subtle glow pulse behind the logo */
+.logo-wrap::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 12px;
+  background: radial-gradient(ellipse at center,
+              rgba(40, 200, 255, 0.35) 0%,
+              rgba(40, 200, 255, 0.12) 45%,
+              rgba(40, 200, 255, 0) 70%);
+  filter: blur(6px);
+  opacity: 0;
+  animation: pulse 2.8s ease-out infinite 1s;
+  pointer-events: none;
+}
+
+.site-header .logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: block;
+  /* entrance + idle float */
+  opacity: 0;
+  transform: translateY(6px) scale(0.88);
+  animation:
+    logo-in .6s cubic-bezier(.2,.9,.25,1.2) .05s forwards,
+    float 7s ease-in-out 1s infinite;
+  /* crisp + glow */
+  filter: drop-shadow(0 2px 10px rgba(0,0,0,.25))
+          drop-shadow(0 0 6px rgba(40,200,255,.18));
+  transition: transform .2s ease, filter .2s ease;
+}
+
+.site-header .logo:hover {
+  transform: translateY(-1px) scale(1.06);
+  filter: drop-shadow(0 4px 14px rgba(0,0,0,.3))
+          drop-shadow(0 0 10px rgba(40,200,255,.28));
+}
+
+/* keyframes */
+@keyframes logo-in {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) }
+  50%      { transform: translateY(-3px) }
+}
+
+/* pulse ring behind logo */
+@keyframes pulse {
+  0%   { transform: scale(.92); opacity: .55; }
+  60%  { transform: scale(1.15); opacity: .18; }
+  100% { transform: scale(1.25); opacity: 0; }
+}
+
+/* Respect accessibility: reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .site-header .logo,
+  .logo-wrap::after {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+    
   </style>
 </head>
 <body>
 
   <!-- Corner Home Button -->
-  <a href="https://mochimosh101.github.io/" class="corner-home" aria-label="Go to Home">
+  <a href="/" class="corner-home" aria-label="Go to Home">
     <i class="fa-solid fa-house"></i><span class="label">Home</span>
   </a>
 
   <div class="wrap">
-    <header class="site-header">
-      <img src="https://raw.githubusercontent.com/mochimosh101/Icons/main/1001.png"
-           alt="logo"
-           onerror="this.src='https://avatars.githubusercontent.com/u/9919?s=80&v=4'">
-      <h1>Moonlight Icons <span class="badge" id="count-badge">loading…</span></h1>
-    </header>
+<header class="site-header">
+  <span class="logo-wrap">
+    <img class="logo" src="imgs/PF-Sketch.png" alt="logo"
+         onerror="this.src='https://avatars.githubusercontent.com/u/9919?s=80&v=4'">
+  </span>
+  <h1>Moonlight Icons <span class="badge" id="count-badge">loading…</span></h1>
+</header>
+
 
     <div class="panel">
       <div class="controls">

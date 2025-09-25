@@ -31,27 +31,6 @@ h1, h2, h3, h4, h5, h6 {
   position:sticky; top:12px; z-index:5; /* stays visible on scroll */
 }
 
-.home-btn{
-  margin-left:auto;
-  display:inline-flex; align-items:center; gap:8px;
-  padding:8px 14px;
-  background:var(--card);
-  border:1px solid var(--ring);
-  border-radius:10px;
-  color:var(--text); text-decoration:none; font-weight:600;
-  transition:transform .15s ease, background .15s ease, border-color .15s ease;
-}
-.home-btn:hover{ background:var(--accent); border-color:var(--accent); color:#fff; transform:translateY(-1px); }
-.home-btn:active{ transform:translateY(0); }
-.home-btn i{ font-size:14px; line-height:1; }
-
-/* Compact on small screens */
-@media (max-width: 640px){
-  .home-text{ display:none; }      /* show just the icon on phones */
-  .home-btn{ padding:8px 10px; }
-}
-
-
 body, html {
   height: 100%;
   background-image: url(/imgs/back-ground.jpg);

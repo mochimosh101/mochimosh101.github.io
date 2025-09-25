@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Moonlight Icons</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1115; --panel:#141925; --card:#141b29; --ring:#25304a;
+      --text:#edf2fb; --muted:#a7b0c1; --accent:#28c8ff; --accent-2:#8bdfff;
+      --chip:#0f2230; --chip-ring:#1e3b4b; --shadow:0 14px 40px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:linear-gradient(180deg,#0b1016,#0f1115 55%,#0b0f14);
+      color:var(--text); font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial;
+    }
+    .wrap{max-width:1200px;margin:28px auto;padding:0 14px}
+
+    /* Header */
+    header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+    header img{width:38px;height:38px;border-radius:10px;box-shadow:var(--shadow)}
+    h1{margin:0;font-size:24px;letter-spacing:.2px}
+    .badge{margin-left:8px;background:var(--chip);border:1px solid var(--chip-ring);color:var(--accent-2);
+      padding:2px 8px;border-radius:999px;font-size:12px}
+
+    /* Panel & controls */
+    .panel{background:var(--panel);border:1px solid var(--ring);border-radius:16px;padding:14px;box-shadow:var(--shadow)}
+    .controls{
+      position:sticky;top:0;z-index:5;background:var(--panel);
+      display:grid;grid-template-columns:1fr 96px 230px;gap:8px;align-items:center;
+      padding-bottom:8px
+    }
+    .search{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--ring);
+      border-radius:12px;padding:10px 12px}
+    .search input{flex:1;background:transparent;border:0;color:var(--text);font-size:15px;outline:none}
+    .btn{appearance:none;border:1px solid var(--ring);background:var(--card);color:var(--text);
+      padding:10px 12px;border-radius:12px;cursor:pointer;font-weight:600}
+    .btn:hover{border-color:#3a4663}
+    .btn.accent{background:linear-gradient(180deg,#2ad1ff,#1593ff);border-color:#0f84e8}
+    .small{padding:8px 10px;border-radius:10px;font-weight:700}
+    .hint{color:var(--muted);font-size:13px;margin:8px 2px 0}
+
+    /* Grid & card */
+    .results{margin-top:12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+    .card{background:var(--card);border:1px solid var(--ring);border-radius:14px;padding:12px;
+      display:flex;flex-direction:column;gap:10px;transition:transform .12s ease, box-shadow .12s ease}
+    .card:hover{transform:translateY(-2px); box-shadow:0 18px 55px rgba(0,0,0,.4)}
+    .thumb{width:100%;aspect-ratio:16/9;background:#0e131c;border:1px solid var(--ring);border-radius:10px;
+      display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .thumb img{width:100%;height:100%;object-fit:contain}
+
+    .meta{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;min-height:42px}
+.card {
+  background: var(--card);
+  border: 1px solid var(--ring);
+  border-radius: 16px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 220px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.35);
+}
+
+@media (max-width: 600px) {
+  .results {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .title {
+    font-size: 13px;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+  }
+}
+
+    .chip{font:700 11px ui-monospace,Menlo,Consolas,monospace;color:var(--accent-2);
+      background:var(--chip);border:1px solid var(--chip-ring);padding:4px 8px;border-radius:999px;white-space:nowrap}
+
+    .actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:auto}
+    .actions .btn{display:flex;align-items:center;justify-content:center;gap:6px}
+
+    .loading{padding:16px;text-align:center;color:var(--muted)}
+    .error{color:#ffb3ba;background:#2a1010;border:1px solid #552222;padding:10px 12px;border-radius:10px;margin-top:12px}
+
+    /* Pager */
+    .pager{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px}
+    .pager .left,.pager .right{display:flex;gap:6px}
+    .pager .page-btn{min-width:38px;padding:8px 10px;border-radius:10px;border:1px solid var(--ring);background:var(--card);color:var(--text);cursor:pointer}
+    .pager .page-btn[disabled]{opacity:.5;cursor:not-allowed}
+    .pager .page-num{padding:8px 12px;border-radius:10px;border:1px solid var(--ring);background:var(--card);color:var(--text);width:72px;text-align:center}
+    .pager .summary{color:var(--muted);font-size:13px}
+
+    /* Mobile */
+    @media (max-width:900px){
+      .controls{grid-template-columns:1fr 84px 1fr}
+      .results{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+      .thumb{aspect-ratio:4/3}
+      .actions{grid-template-columns:1fr 1fr}
+      .actions .btn:last-child{grid-column:1 / -1}
+    }
+    @media (max-width:520px){
+      h1{font-size:20px}
+      .btn.accent{font-size:13px}
+      .pager{flex-direction:column;gap:8px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img src="imgs/moonlight.png" alt="logo" onerror="this.src='https://avatars.githubusercontent.com/u/9919?s=80&v=4'">
+      <h1>Moonlight Icons <span class="badge" id="count-badge">loading…</span></h1>
+    </header>
+
+    <div class="panel">
+      <div class="controls">
+        <div class="search">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input id="q" placeholder="Search by ID, Name, or paste a PNG URL…">
+        </div>
+        <button class="btn small" id="clear">Clear</button>
+        <button class="btn accent small" id="copyAll">Copy filtered (Wording)</button>
+      </div>
+
+      <div class="hint">Uses <code>items.json</code> (same folder) to map ItemID → Name and local images at <code>Icons/{ID}.png</code>.</div>
+
+      <div id="status" class="loading">Loading local icons…</div>
+      <div id="error" class="error" style="display:none"></div>
+
+      <div id="results" class="results" style="display:none"></div>
+
+      <div id="pager" class="pager" style="display:none">
+        <div class="left">
+          <button class="page-btn" id="firstPage" title="First">&laquo;</button>
+          <button class="page-btn" id="prevPage" title="Prev">&lsaquo;</button>
+        </div>
+        <div class="summary">
+          <span id="rangeText">0–0</span> of <span id="totalText">0</span> • Page
+          <input id="pageInput" class="page-num" type="number" min="1" value="1">
+          / <span id="pageCount">1</span>
+        </div>
+        <div class="right">
+          <button class="page-btn" id="nextPage" title="Next">&rsaquo;</button>
+          <button class="page-btn" id="lastPage" title="Last">&raquo;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const $ = (id)=>document.getElementById(id);
+    const resultsEl=$('results'), statusEl=$('status'), errorEl=$('error'),
+          qEl=$('q'), countBadge=$('count-badge');
+
+    const pagerEl=$('pager'), rangeText=$('rangeText'), totalText=$('totalText'),
+          pageInput=$('pageInput'), pageCountEl=$('pageCount'),
+          firstBtn=$('firstPage'), prevBtn=$('prevPage'), nextBtn=$('nextPage'), lastBtn=$('lastPage');
+
+    let ITEMS=[], FILTERED=[], PAGE_SIZE=50, currentPage=1, pageCount=1;
+
+    const debounce=(fn,ms=150)=>{ let t; return(...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a),ms); }; };
+    const escapeHTML=(s)=>String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;","<": "&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+
+    // Robust name extractor: handles strings, JSON-like strings, objects with ItemName/name/title/etc.
+    function getDisplayName(val){
+      try{
+        if (typeof val === "string"){
+          let s = val.trim();
+          // If it's a stringified JSON object, parse it
+          if ((s.startsWith("{") && s.endsWith("}")) || (s.startsWith("[") && s.endsWith("]"))){
+            const obj = JSON.parse(s);
+            return getDisplayName(obj) || s;
+          }
+          // If the string literally contains ItemName: "Name"
+          const m = s.match(/"?\bItemName\b"?\s*:\s*"?([^"]+)"?/i);
+          if (m) return m[1].trim();
+          // Strip wrapping quotes
+          return s.replace(/^"+|"+$/g,'').trim();
+        }
+        if (val && typeof val === "object"){
+          const keys = ["ItemName","itemName","Name","name","title","Title","displayName","DisplayName","item"];
+          for (const k of keys){ if (val[k]) return getDisplayName(val[k]); }
+          // fallback: first string value in the object
+          for (const k in val){ if (typeof val[k]==="string") return val[k].trim(); }
+        }
+      }catch(_){}
+      return "";
+    }
+
+    function parseQuery(raw){
+      let q=(raw||"").trim();
+      if(/\.png(\?|$)/i.test(q)){ const m=q.match(/(\d+)(?:\.png)?(?:\?.*)?$/i); if(m) return m[1]; }
+      const n=q.match(/\b(\d{1,8})\b/); if(n) return n[1];
+      return q;
+    }
+
+    async function loadIndex(){
+      try{
+        let names={}; try{ names = await (await fetch("items.json?t="+Date.now())).json(); } catch{ names={}; }
+
+        // Use IDs present in names.json if any; otherwise fallback (will auto-hide missing imgs when opened)
+        const idsFromNames = Object.keys(names).map(k=>parseInt(k,10)).filter(n=>!isNaN(n)).sort((a,b)=>a-b);
+        const ids = idsFromNames.length ? idsFromNames : Array.from({length:1200},(_,i)=>i+1);
+
+        ITEMS = ids.map(id=>{
+          const sid = String(id);
+          const disp = getDisplayName(names[sid]) || sid;
+          return { id: sid, name: disp, url: `Icons/${sid}.png` };
+        });
+
+        FILTERED = ITEMS.slice();
+        countBadge.textContent = `${ITEMS.length} items (local)`;
+        statusEl.style.display="none";
+        resultsEl.style.display="grid";
+        pagerEl.style.display="flex";
+        computeAndRenderPage(1);
+      }catch(e){
+        statusEl.style.display="none";
+        errorEl.style.display="block";
+        errorEl.textContent="Failed to load: "+e.message;
+      }
+    }
+
+    function computeAndRenderPage(page){
+      currentPage = Math.max(1, Math.min(page, Math.max(1, Math.ceil(FILTERED.length / PAGE_SIZE))));
+      pageCount = Math.max(1, Math.ceil(FILTERED.length / PAGE_SIZE));
+      const start = (currentPage-1) * PAGE_SIZE;
+      const end   = Math.min(start + PAGE_SIZE, FILTERED.length);
+      render(FILTERED.slice(start, end));
+
+      rangeText.textContent = FILTERED.length ? `${start+1}–${end}` : "0–0";
+      totalText.textContent = FILTERED.length;
+      pageInput.value = String(currentPage);
+      pageInput.max   = String(pageCount);
+      pageCountEl.textContent = String(pageCount);
+
+      firstBtn.disabled = currentPage<=1;
+      prevBtn.disabled  = currentPage<=1;
+      nextBtn.disabled  = currentPage>=pageCount;
+      lastBtn.disabled  = currentPage>=pageCount;
+    }
+
+    function render(list){
+      resultsEl.innerHTML = list.map(({id,name,url})=>{
+        const clean = name || id;
+        const wording = `${clean} (ID: ${id})`;
+        return `
+          <div class="card">
+            <div class="thumb">
+              <img src="${url}" alt="${escapeHTML(clean)}" loading="lazy"
+                   onerror="this.closest('.card')?.remove()">
+            </div>
+            <div class="meta">
+              <div class="title" title="${escapeHTML(clean)}">${escapeHTML(clean)}</div>
+              <div class="chip">ID ${escapeHTML(id)}</div>
+            </div>
+            <div class="actions">
+              <button class="btn small" onclick="copy('${url}')" title="Copy image URL">
+                <i class="fa-regular fa-copy"></i><span>URL</span>
+              </button>
+              <button class="btn small" onclick="copy('${wording.replaceAll("'","\\'")}')" title="Copy Name + ID">
+                ${escapeHTML(wording)}
+              </button>
+              <a class="btn small" href="${url}" target="_blank" rel="noreferrer" title="Open image">
+                <i class="fa-solid fa-up-right-from-square"></i><span>Open</span>
+              </a>
+            </div>
+          </div>`;
+      }).join("");
+    }
+
+    function doSearch(){
+      const q=parseQuery(qEl.value).toLowerCase();
+      if(!q){ FILTERED = ITEMS.slice(); computeAndRenderPage(1); return; }
+      FILTERED = ITEMS.filter(x => x.id.includes(q) || (x.name||"").toLowerCase().includes(q));
+      computeAndRenderPage(1);
+    }
+    const doSearchDebounced = debounce(doSearch, 120);
+
+    async function copy(text){
+      try{ await navigator.clipboard.writeText(text); toast("Copied!"); }
+      catch{ toast("Could not copy"); }
+    }
+    let toastEl;
+    function toast(msg){
+      if(!toastEl){
+        toastEl=document.createElement('div');
+        Object.assign(toastEl.style,{position:'fixed',bottom:'24px',left:'50%',transform:'translateX(-50%)',
+          background:'#101625',color:'#e9eef5',border:'1px solid #2b3347',borderRadius:'10px',
+          padding:'10px 14px',zIndex:9999,boxShadow:'0 8px 28px rgba(0,0,0,.4)',fontWeight:'700'});
+        document.body.appendChild(toastEl);
+      }
+      toastEl.textContent=msg; toastEl.style.opacity='1';
+      setTimeout(()=>{ toastEl.style.transition='opacity .35s'; toastEl.style.opacity='0'; },900);
+    }
+
+    function bindPager(){
+      firstBtn.addEventListener('click', ()=>computeAndRenderPage(1));
+      prevBtn.addEventListener('click',  ()=>computeAndRenderPage(currentPage-1));
+      nextBtn.addEventListener('click',  ()=>computeAndRenderPage(currentPage+1));
+      lastBtn.addEventListener('click',  ()=>computeAndRenderPage(pageCount));
+      pageInput.addEventListener('change', ()=>{
+        const n = parseInt(pageInput.value,10);
+        if(!isNaN(n)) computeAndRenderPage(n);
+        else pageInput.value = String(currentPage);
+      });
+    }
+
+    // Events
+    qEl.addEventListener('input', doSearchDebounced);
+    qEl.addEventListener('paste', ()=>setTimeout(()=>{ qEl.value=parseQuery(qEl.value); doSearch(); },0));
+    $('clear').addEventListener('click', ()=>{ qEl.value=''; doSearch(); qEl.focus(); });
+    $('copyAll').addEventListener('click', ()=>{
+      const start=(currentPage-1)*PAGE_SIZE, end=Math.min(start+PAGE_SIZE, FILTERED.length);
+      const pageItems = FILTERED.slice(start, end);
+      if(!pageItems.length){ toast("No results to copy"); return; }
+      const lines = pageItems.map(x=>`${x.name || x.id} (ID: ${x.id})`).join("\n");
+      copy(lines);
+    });
+
+    bindPager();
+    loadIndex();
+  </script>
+</body>
+</html>

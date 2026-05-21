@@ -1,63 +1,53 @@
-    // Fetch URL
-    window.addEventListener('DOMContentLoaded', function() {
-      const includeElements = document.querySelectorAll('x-include');
-      Array.from(includeElements).forEach(element => {
-        const src = element.getAttribute('src');
-        fetch(src)
-          .then(response => response.text())
-          .then(content => {
-            const includedElement = document.createElement('div');
-            includedElement.innerHTML = content;
-            element.replaceWith(includedElement);
-          });
-      });
-    });
-// Fetch URL
+const includePartials = async () => {
+  const includeElements = Array.from(document.querySelectorAll("x-include"));
 
-fetch("items.json")
-  .then(r => r.json())
-  .then(names => {
-    for (const [id, name] of Object.entries(names)) {
-      const item = ITEMS.find(x => x.id == id);
-      if (item) item.name = name;
+  await Promise.all(includeElements.map(async (element) => {
+    const src = element.getAttribute("src");
+    if (!src) return;
+
+    try {
+      const response = await fetch(src);
+      if (!response.ok) throw new Error(`Unable to load ${src}`);
+
+      const wrapper = document.createElement("div");
+      wrapper.innerHTML = await response.text();
+      element.replaceWith(...wrapper.childNodes);
+    } catch (error) {
+      console.warn(error);
     }
-    render(ITEMS);
+  }));
+};
+
+const setupNavigation = () => {
+  const siteNav = document.querySelector("[data-site-nav]");
+  const toggle = document.querySelector("[data-nav-toggle]");
+  const menu = document.querySelector("[data-nav-menu]");
+
+  if (!siteNav || !toggle || !menu) return;
+
+  const setOpen = (isOpen) => {
+    siteNav.classList.toggle("is-open", isOpen);
+    toggle.setAttribute("aria-expanded", String(isOpen));
+  };
+
+  toggle.addEventListener("click", () => {
+    setOpen(!siteNav.classList.contains("is-open"));
   });
 
+  menu.querySelectorAll("a").forEach((link) => {
+    if (link.pathname === window.location.pathname) {
+      link.setAttribute("aria-current", "page");
+    }
 
-// Top Nav Bar
-window.addEventListener('scroll', function() {
-  var navbar = document.getElementById("navbar");
-  if (window.scrollY > 0) {
-    navbar.classList.remove("shrink");
-  } else {
-    navbar.classList.add("shrink");
-  }
-});
-
-window.addEventListener('scroll', function() {
-  var navbar = document.getElementById("navbar-mobile");
-  if (window.scrollY > 0) {
-    navbar.classList.remove("shrink");
-  } else {
-    navbar.classList.add("shrink");
-  }
-});
-// Top Nav Bar
-
-// Header
-$(document).ready(function(){
-  $("#carousel").slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    infinite: true,
-    dots: true,
-    arrows: false,
-    autoplay: true,
-    autoplaySpeed: 6000
+    link.addEventListener("click", () => setOpen(false));
   });
-});
-// Header
 
-// Loading
-// Loading
+  window.addEventListener("scroll", () => {
+    siteNav.classList.toggle("is-scrolled", window.scrollY > 12);
+  }, { passive: true });
+};
+
+document.addEventListener("DOMContentLoaded", async () => {
+  await includePartials();
+  setupNavigation();
+});

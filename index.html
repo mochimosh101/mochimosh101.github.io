@@ -1,156 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-  <title>Jochim Edago · Full Stack Developer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio of Jochim Edago, a full stack developer building game stores, server communities, and web experiences.">
+  <title>Jochim Edago | Full Stack Developer</title>
   <link rel="icon" type="image/png" href="/imgs/PF-Sketch.png">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-  <script src="/script.js"></script>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="stylesheet" href="/styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+  <script src="/script.js" defer></script>
 </head>
 <body>
   <x-include src="/top-nav.html"></x-include>
 
-  <!-- Main Content -->
-  <div class="title-main">
-    <img src="/imgs/PF-Sketch.png" alt="PF Sketch">  
-    <h1>Featured projects</h1>
-  </div>
-
-  <div class="contents">
-    <div id="carousel" class="featured">
-      <div class="card-body">
-        <div class="card-content">
-          <h2>Rustdose PVE</h2>
-          <h5>2023 - MAY</h5>
-          <h4>Rust Game Store</h4>
-          <a href="https://rustdose.tebex.io/" target="_blank">
-            <p class="card-link">Link&gt;&gt;</p>
-          </a>
-        </div>
-        <div class="card-video-container">
-          <a href="https://rustdose.tebex.io/" target="_blank">
-            <video class="card-video" autoplay loop muted>
-              <source src="/vids/rustdose.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </a>
+  <main>
+    <section class="hero-section">
+      <div class="hero-copy">
+        <p class="eyebrow">Portfolio</p>
+        <h1>Jochim Edago</h1>
+        <p class="hero-lede">Full stack developer creating polished game stores, community tools, and self-hosted web projects with fast, practical interfaces.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="/project/project.html">View Projects</a>
+          <a class="button button-secondary" href="https://github.com/mochimosh101" target="_blank" rel="noreferrer">GitHub</a>
         </div>
       </div>
+      <div class="hero-media" aria-label="Portfolio profile artwork">
+        <img src="/imgs/PF-Sketch.png" alt="Jochim Edago profile sketch">
+      </div>
+    </section>
 
-      <div class="card-body">
-        <div class="card-content">
-          <h2>Rustymoon</h2>
-          <h5>2023 - May</h5>
-          <h4>Rust Game Store</h4>
-          <a href="https://rustymoon.tebex.io/" target="_blank">
-            <p class="card-link">Link&gt;&gt;</p>
-          </a>
+    <section class="stats-strip" aria-label="Portfolio highlights">
+      <div>
+        <strong>15+</strong>
+        <span>Storefront projects</span>
+      </div>
+      <div>
+        <strong>2020</strong>
+        <span>Started homelab work</span>
+      </div>
+      <div>
+        <strong>Full stack</strong>
+        <span>Frontend, backend, hosting</span>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">LinkedIn activity</p>
+          <h2>Posts by category</h2>
         </div>
-        <div class="card-video-container">
-          <a href="https://rustymoon.tebex.io/" target="_blank">
-            <video class="card-video" autoplay loop muted>
-              <source src="/vids/rustymoon.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </a>
-        </div>
+        <a class="section-link" href="https://www.linkedin.com/in/jochim-edago-b4a563243/recent-activity/all/" target="_blank" rel="noreferrer">View LinkedIn</a>
       </div>
 
-      <div class="card-body">
-        <div class="card-content">
-          <h2>Rustic Rivals</h2>
-          <h5>2023 - FEB</h5>
-          <h4>Rust Game Store</h4>
-          <a href="https://rustic-rivals.tebex.io/" target="_blank">
-            <p class="card-link">Link&gt;&gt;</p>
-          </a>
-        </div>
-        <div class="card-video-container">
-          <a href="https://rustic-rivals.tebex.io/" target="_blank">
-            <video class="card-video" autoplay loop muted>
-              <source src="/vids/rusticrivals.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </a>
-        </div>
+      <div class="category-grid">
+        <article class="category-card">
+          <img src="/imgs/linkedin/fiverr-bug.jpg" alt="Fiverr out of office bug screenshot" loading="lazy">
+          <div>
+            <p class="project-date">Freelance platforms</p>
+            <h3>Fiverr support and bug reporting</h3>
+            <p>Posts about Fiverr gig settings, seller workflow issues, and platform bugs that affect freelancers.</p>
+            <ul>
+              <li>Fiverr out-of-office bug report</li>
+              <li>Community troubleshooting awareness</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="category-card category-card-text">
+          <div>
+            <p class="project-date">IT support</p>
+            <h3>Career growth and help desk work</h3>
+            <p>Activity around help desk roles, interview process notes, technology support, and new team onboarding.</p>
+            <ul>
+              <li>Apex Systems help desk opportunity</li>
+              <li>Capgemini interview and onboarding thanks</li>
+              <li>Tech support, rapid response, and team growth</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="category-card">
+          <div class="category-media">
+            <img src="/imgs/linkedin/tryhackme.jpg" alt="TryHackMe cyber security training thumbnail" loading="lazy">
+            <img src="/imgs/linkedin/level-effect.jpg" alt="Level Effect course post thumbnail" loading="lazy">
+          </div>
+          <div>
+            <p class="project-date">Cybersecurity</p>
+            <h3>Security training and practice</h3>
+            <p>Posts about hands-on cybersecurity learning paths and course work.</p>
+            <ul>
+              <li>TryHackMe cyber security training</li>
+              <li>Level Effect online course study</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="category-card">
+          <div class="category-media">
+            <img src="/imgs/linkedin/truenas.jpg" alt="TrueNAS homelab post thumbnail" loading="lazy">
+            <img src="/imgs/linkedin/domain.jpg" alt="Domain blog post thumbnail" loading="lazy">
+          </div>
+          <div>
+            <p class="project-date">Homelab</p>
+            <h3>Self-hosting, TrueNAS, and infrastructure</h3>
+            <p>Blog posts and updates about building personal infrastructure and learning by running systems directly.</p>
+            <ul>
+              <li>TrueNAS and homemade NAS experiments</li>
+              <li>Docker, Portainer, and self-hosting topics</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="category-card">
+          <img src="/imgs/linkedin/domain-mail.jpg" alt="Domain mail post thumbnail" loading="lazy">
+          <div>
+            <p class="project-date">Web presence</p>
+            <h3>Domains, email, and blogging</h3>
+            <p>Posts from Mochisquare covering domain setup, custom email, blogging, and independent web presence.</p>
+            <ul>
+              <li>Got another domain</li>
+              <li>Making custom domain mail</li>
+              <li>Blog and self-taught learning posts</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-heading">
+        <p class="eyebrow">Selected work</p>
+        <h2>Featured projects</h2>
       </div>
 
-      <div class="card-body">
-        <div class="card-content">
-          <h2>TOPE Unturned</h2>
-          <h5>2023 - APR</h5>
-          <h4>Unturned Game Store</h4>
-          <a href="https://topeunturned.tebex.io/" target="_blank">
-            <p class="card-link">Link&gt;&gt;</p>
-          </a>
-        </div>
-        <div class="card-video-container">
-          <a href="https://topeunturned.tebex.io/" target="_blank">
-            <video class="card-video" autoplay loop muted>
-              <source src="/vids/topeunturned.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </a>
-        </div>
+      <div class="featured-grid">
+        <article class="work-card work-card-large">
+          <div class="card-copy">
+            <p class="project-date">2023 - May</p>
+            <h3>Rustdose PVE</h3>
+            <p>Rust game store with a branded purchase flow and server-ready presentation.</p>
+            <a href="https://rustdose.tebex.io/" target="_blank" rel="noreferrer">Visit project</a>
+          </div>
+          <video class="card-video" autoplay loop muted playsinline preload="metadata">
+            <source src="/vids/rustdose.mp4" type="video/mp4">
+          </video>
+        </article>
+
+        <article class="work-card">
+          <div class="card-copy">
+            <p class="project-date">2023 - May</p>
+            <h3>Rustymoon</h3>
+            <p>Dark themed Rust store focused on clear packages and conversion.</p>
+            <a href="https://rustymoon.tebex.io/" target="_blank" rel="noreferrer">Visit project</a>
+          </div>
+          <video class="card-video" autoplay loop muted playsinline preload="metadata">
+            <source src="/vids/rustymoon.mp4" type="video/mp4">
+          </video>
+        </article>
+
+        <article class="work-card">
+          <div class="card-copy">
+            <p class="project-date">2023 - Feb</p>
+            <h3>Rustic Rivals</h3>
+            <p>Game store build for a competitive Rust community.</p>
+            <a href="https://rustic-rivals.tebex.io/" target="_blank" rel="noreferrer">Visit project</a>
+          </div>
+          <video class="card-video" autoplay loop muted playsinline preload="metadata">
+            <source src="/vids/rusticrivals.mp4" type="video/mp4">
+          </video>
+        </article>
+
+        <article class="work-card">
+          <div class="card-copy">
+            <p class="project-date">2023 - Apr</p>
+            <h3>TOPE Unturned</h3>
+            <p>Unturned game store with focused navigation and product layout.</p>
+            <a href="https://topeunturned.tebex.io/" target="_blank" rel="noreferrer">Visit project</a>
+          </div>
+          <video class="card-video" autoplay loop muted playsinline preload="metadata">
+            <source src="/vids/topeunturned.mp4" type="video/mp4">
+          </video>
+        </article>
+
+        <article class="work-card">
+          <div class="card-copy">
+            <p class="project-date">2023 - Apr</p>
+            <h3>DerpZ</h3>
+            <p>Minecraft store experience for a server community.</p>
+            <a href="https://derpz.tebex.io/" target="_blank" rel="noreferrer">Visit project</a>
+          </div>
+          <video class="card-video" autoplay loop muted playsinline preload="metadata">
+            <source src="/vids/derpz.mp4" type="video/mp4">
+          </video>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-block split-section">
+      <div class="about-panel">
+        <p class="eyebrow">What I build</p>
+        <h2>Websites that feel fast, clear, and useful.</h2>
+        <p>I work across design implementation, store pages, hosting, automation, and server infrastructure. The result is practical web work that looks sharp and stays easy to maintain.</p>
       </div>
 
-      <div class="card-body">
-        <div class="card-content">
-          <h2>DerpZ</h2>
-          <h5>2023 - APR</h5>
-          <h4>Minecraft Game Store</h4>
-          <a href="https://derpz.tebex.io/" target="_blank">
-            <p class="card-link">Link&gt;&gt;</p>
-          </a>
-        </div>
-        <div class="card-video-container">
-          <a href="https://derpz.tebex.io/" target="_blank">
-            <video class="card-video" autoplay loop muted>
-              <source src="/vids/derpz.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </a>
+      <div class="tool-panel">
+        <p class="eyebrow">Languages and tools</p>
+        <div class="tool-grid" aria-label="Languages and tools">
+          <img src="/svg/docker-plain.svg" title="Docker" alt="Docker">
+          <img src="/svg/css.svg" title="CSS3" alt="CSS">
+          <img src="/svg/html5.svg" title="HTML5" alt="HTML">
+          <img src="/svg/javascript.svg" title="JavaScript" alt="JavaScript">
+          <img src="/svg/mysql-original-wordmark.svg" title="MySQL" alt="MySQL">
+          <img src="/svg/bash.svg" title="Bash" alt="Bash">
+          <img src="/svg/amazonwebservices.svg" title="AWS" alt="AWS">
+          <img src="/svg/oracle.svg" title="Oracle" alt="Oracle">
+          <img src="/svg/python.svg" title="Python" alt="Python">
+          <img src="/svg/vscode.svg" title="VS Code" alt="VS Code">
+          <img src="/svg/wordpress.svg" title="WordPress" alt="WordPress">
         </div>
       </div>
+    </section>
 
-    </div>
-  <div class="languages-tools">
-  <div class="languages-tools-images">
-    <h3>🛠️ Languages and Tools</h3>
+    <section class="section-block github-panel">
+      <div>
+        <p class="eyebrow">GitHub</p>
+        <h2>Open source activity</h2>
+      </div>
+      <a href="https://git.io/streak-stats" target="_blank" rel="noreferrer">
+        <img src="https://streak-stats.demolab.com/?user=mochimosh101&theme=highcontrast" alt="GitHub contribution streak for mochimosh101" loading="lazy">
+      </a>
+    </section>
+  </main>
 
-    <img src="/svg/docker-plain.svg" title="Docker" alt="Docker" width="40" height="40"/>&nbsp;
-    <img src="/svg/css.svg"  title="CSS3" alt="CSS" width="40" height="40"/>&nbsp;
-    <img src="/svg/html5.svg" title="HTML5" alt="HTML" width="40" height="40"/>&nbsp;
-    <img src="/svg/javascript.svg" title="JavaScript" alt="JavaScript" width="40" height="40"/>&nbsp;
-    <img src="/svg/mysql-original-wordmark.svg" title="MySQL"  alt="MySQL" width="40" height="40"/>&nbsp;
-    <img src="/svg/bash.svg" title="Bash" alt="Bash" width="40" height="40"/>&nbsp;
-    <img src="/svg/amazonwebservices.svg" title="AWS" alt="AWS" width="40" height="40"/>&nbsp;
-    <img src="/svg/oracle.svg" title="Oracle" alt="Oracle" width="40" height="40"/>
-    <img src="/svg/python.svg" title="Python" alt="Python" width="40" height="40"/>
-    <img src="/svg/vscode.svg" title="Vscode" alt="Vscode" width="40" height="40"/>
-    <img src="/svg/wordpress.svg" title="Wordpress" alt="Wordpress" width="40" height="40"/>
-  </div>
-</div>
-  
-  <div class="github-stats">
-    <h3><i class="fab fa-github"></i> Github Stats</h3>
-    <a href="https://git.io/streak-stats" target="_blank">
-      <img src="https://streak-stats.demolab.com/?user=mochimosh101&theme=highcontrast" alt="GitHub Streak">
-    </a>
-  </div>
-  
-</div>
-<x-include src="/footer.html"></x-include>
-  <!-- Main Content -->
-  </body>
+  <x-include src="/footer.html"></x-include>
+</body>
 </html>
-
-

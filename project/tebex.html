@@ -9,7 +9,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-        <script src="/script.js"></script>
+        <script src="/script.js" defer></script>
       </head>
   <body>
     <x-include src="/top-nav.html"></x-include>
@@ -18,7 +18,43 @@
       <p class="eyebrow">Client work</p>
       <h1>Tebex projects</h1>
     </header>
-    <main class="contents">
+    <main class="contents category-page">
+      <section class="category-hero-panel">
+        <div>
+          <p class="eyebrow">Category</p>
+          <h2>Tebex storefronts</h2>
+          <p>Game community stores, package pages, and freelance marketplace work connected to your web-store projects.</p>
+        </div>
+        <img src="/imgs/tebex-page.png" alt="Tebex storefront preview">
+      </section>
+
+      <section class="post-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">LinkedIn posts</p>
+            <h2>Related activity</h2>
+          </div>
+        </div>
+        <div class="post-grid">
+          <article class="post-card">
+            <p class="project-date">Freelance platforms</p>
+            <h3>Fiverr gig status bug</h3>
+            <p>You posted about the Fiverr "out of office" setting causing gigs to disappear from search results, connecting marketplace troubleshooting with your freelance storefront work.</p>
+            <div class="post-tags">
+              <span>#fiverr</span>
+              <span>#fiverrbug</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="post-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Store builds</p>
+            <h2>Tebex projects</h2>
+          </div>
+        </div>
           <div class="backwrap gradient">
             <div class="back-shapes">
                 <span class="floating circle" style="top:66.59856996935649%;left:13.020833333333334%;animation-delay:-0.9s;"></span>
@@ -55,7 +91,8 @@
                 <span class="floating square" style="top:11.542390194075587%;left:91.51041666666667%;animation-delay:-0.1s;"></span>
             </div>
           </div>
-      <x-include src="/project/tebex-card.html"></x-include>
+        <x-include src="/project/tebex-card.html"></x-include>
+      </section>
     </main>
     <x-include src="/footer.html"></x-include>
   </body>

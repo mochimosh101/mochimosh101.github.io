@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homelab | Jochim Edago</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/png" href="/imgs/PF-Sketch.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <x-include src="/top-nav.html"></x-include>
+
+    <header class="page-hero">
+      <img src="/imgs/PF-Sketch.png" alt="PF Sketch">
+      <p class="eyebrow">Project category</p>
+      <h1>Homelab</h1>
+    </header>
+
+    <main class="contents category-page">
+      <section class="category-hero-panel">
+        <div>
+          <p class="eyebrow">Self-hosting</p>
+          <h2>Infrastructure, domains, and hands-on systems.</h2>
+          <p>This category collects your LinkedIn posts about learning by building: TrueNAS, homemade NAS experiments, custom domain mail, domains, Docker, Portainer, blogging, and self-hosting.</p>
+        </div>
+        <img src="/imgs/homelab.jpg" alt="Network cables in a homelab rack">
+      </section>
+
+      <section class="post-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">LinkedIn posts</p>
+            <h2>Homelab activity</h2>
+          </div>
+        </div>
+
+        <div class="post-grid">
+          <article class="post-card post-card-feature">
+            <p class="project-date">TrueNAS</p>
+            <h3>Back at it again with TrueNAS</h3>
+            <p>A post about returning to TrueNAS and continuing to experiment with storage and home server infrastructure.</p>
+            <div class="post-tags">
+              <span>TrueNAS</span>
+              <span>Storage</span>
+              <span>Homelab</span>
+            </div>
+          </article>
+
+          <article class="post-card">
+            <p class="project-date">NAS build</p>
+            <h3>Homemade TrueNAS or NAS</h3>
+            <p>You shared a self-taught build attempt around making your own home NAS, showing practical hardware and systems learning.</p>
+            <div class="post-tags">
+              <span>NAS</span>
+              <span>Self-hosting</span>
+            </div>
+          </article>
+
+          <article class="post-card">
+            <p class="project-date">Domains</p>
+            <h3>Got another domain</h3>
+            <p>A web presence update from Mochisquare, connected to domain ownership, project identity, and managing your own online footprint.</p>
+            <div class="post-tags">
+              <span>Domains</span>
+              <span>Blog</span>
+            </div>
+          </article>
+
+          <article class="post-card">
+            <p class="project-date">Email hosting</p>
+            <h3>Making my own domain mail</h3>
+            <p>A post about setting up custom domain email, a practical piece of owning and maintaining your own infrastructure.</p>
+            <div class="post-tags">
+              <span>Domain mail</span>
+              <span>DNS</span>
+            </div>
+          </article>
+
+          <article class="post-card">
+            <p class="project-date">Self-hosting topics</p>
+            <h3>Docker, Portainer, and self-hosting</h3>
+            <p>You introduced your LinkedIn topics as blog, self-taught learning, Docker, Portainer, and self-hosting.</p>
+            <div class="post-tags">
+              <span>Docker</span>
+              <span>Portainer</span>
+              <span>Self-taught</span>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <x-include src="/footer.html"></x-include>
+  </body>
+</html>

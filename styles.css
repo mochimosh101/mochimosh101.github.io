@@ -388,6 +388,54 @@ h3 {
   justify-content: center;
 }
 
+.snapshot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.snapshot-card {
+  overflow: hidden;
+  min-height: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  color: inherit;
+  text-decoration: none;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.24);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.snapshot-card:hover {
+  border-color: rgba(57, 200, 214, 0.6);
+  transform: translateY(-4px);
+  box-shadow: 0 22px 58px rgba(0, 0, 0, 0.34);
+}
+
+.snapshot-card-large {
+  grid-row: span 2;
+}
+
+.snapshot-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top center;
+  background: #090b10;
+}
+
+.snapshot-card-large img {
+  aspect-ratio: 16 / 13;
+}
+
+.snapshot-card div {
+  padding: 22px;
+}
+
+.snapshot-card p:not(.project-date) {
+  color: var(--muted);
+}
+
 .featured-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -656,6 +704,42 @@ h3 {
   font-weight: 800;
 }
 
+.server-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.server-showcase > img {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  object-position: top center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.server-stack-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.server-stack-grid article {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(20, 25, 34, 0.9);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.24);
+}
+
+.server-stack-grid p:not(.project-date) {
+  color: var(--muted);
+}
+
 .footer {
   width: min(var(--max-width), calc(100% - 36px));
   margin: 112px auto 24px;
@@ -741,10 +825,15 @@ h3 {
 
   .featured-grid,
   .category-grid,
+  .snapshot-grid,
   .project-card,
   .tebex-card,
   .post-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .snapshot-card-large {
+    grid-row: span 1;
   }
 
   .category-card,
@@ -764,6 +853,14 @@ h3 {
 
   .post-card-feature {
     grid-column: span 1;
+  }
+
+  .server-showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .server-showcase > img {
+    min-height: 300px;
   }
 
   .work-card-large {
@@ -843,9 +940,11 @@ h3 {
   .stats-strip,
   .featured-grid,
   .category-grid,
+  .snapshot-grid,
   .project-card,
   .tebex-card,
-  .post-grid {
+  .post-grid,
+  .server-stack-grid {
     grid-template-columns: 1fr;
   }
 
@@ -853,8 +952,10 @@ h3 {
   .card-copy,
   .card-content,
   .category-card > div,
+  .snapshot-card div,
   .category-hero-panel > div,
   .post-card,
+  .server-stack-grid article,
   .about-panel,
   .tool-panel,
   .github-panel,

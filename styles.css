@@ -94,8 +94,9 @@ main {
 .brand img {
   width: 38px;
   height: 38px;
-  border-radius: 50%;
+  border-radius: 12px;
   border: 1px solid var(--line);
+  object-fit: cover;
 }
 
 .brand span {
@@ -1042,6 +1043,14 @@ body::after {
   box-shadow: 0 12px 30px rgba(242, 76, 76, 0.22);
 }
 
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(123, 77, 255, 0.24);
+}
+
 .brand strong,
 .brand small {
   display: block;
@@ -1300,10 +1309,16 @@ body::after {
 
 .portfolio-card img {
   width: 100%;
+  display: block;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   object-position: top center;
   background: #080a0e;
+}
+
+.portfolio-card:nth-child(6) img,
+.portfolio-card:nth-child(7) img {
+  object-position: center;
 }
 
 .portfolio-card div {
@@ -1333,6 +1348,44 @@ body::after {
   color: #e4e9f4;
   font-size: 0.78rem;
   font-weight: 850;
+}
+
+.portfolio-card > div::after {
+  content: "Open project ->";
+  display: inline-flex;
+  margin-top: 16px;
+  color: var(--accent-2);
+  font-weight: 950;
+}
+
+.detail-link {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 16px;
+  color: var(--accent-2);
+  font-weight: 950;
+  text-decoration: none;
+}
+
+.detail-link::after {
+  content: " ->";
+}
+
+.card-action,
+.detail-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin-top: 16px;
+  color: var(--accent-2);
+  font-weight: 950;
+  text-decoration: none;
+}
+
+.card-action::after,
+.detail-link::after {
+  content: "->";
 }
 
 .spotlight-card {
@@ -1370,10 +1423,14 @@ body::after {
   display: grid;
   grid-template-columns: 1fr 0.7fr;
   gap: 10px;
+  max-height: 520px;
+  overflow: hidden;
 }
 
 .screenshot-wall img {
   width: 100%;
+  height: 250px;
+  display: block;
   border: 1px solid var(--line);
   border-radius: 8px;
   object-fit: cover;
@@ -1384,18 +1441,50 @@ body::after {
 .screenshot-wall img:first-child {
   grid-row: span 2;
   height: 100%;
+  min-height: 510px;
 }
 
 .system-grid,
-.plugin-board {
+.plugin-board,
+.bot-preview {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
 }
 
 .system-grid article,
-.plugin-board article {
+.plugin-board article,
+.bot-preview article {
   padding: 18px;
+}
+
+.bot-preview {
+  grid-template-columns: 1fr;
+}
+
+.bot-preview article {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(11, 16, 25, 0.84);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.24);
+}
+
+.bot-preview code {
+  display: block;
+  margin: 12px 0;
+  overflow-wrap: anywhere;
+  color: #f8fafc;
+  font-weight: 850;
+}
+
+.discord-embed-card {
+  border-left: 4px solid #5865f2 !important;
+}
+
+.discord-embed-card strong {
+  display: block;
+  margin: 10px 0;
+  font-size: clamp(1.5rem, 3vw, 2.3rem);
 }
 
 .system-grid strong,
@@ -1509,6 +1598,16 @@ body::after {
 
   .screenshot-wall img:first-child {
     grid-row: auto;
+    min-height: 0;
+    height: 260px;
+  }
+
+  .screenshot-wall {
+    max-height: none;
+  }
+
+  .screenshot-wall img {
+    height: 260px;
   }
 
   .filter-pills {

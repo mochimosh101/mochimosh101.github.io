@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="Discord bot embed and server tool preview">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#151925"/>
+      <stop offset=".58" stop-color="#111827"/>
+      <stop offset="1" stop-color="#0b3a45"/>
+    </linearGradient>
+    <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <path d="M0 108h1200M0 220h1200M0 332h1200M0 444h1200M0 556h1200M120 0v675M240 0v675M360 0v675M480 0v675M600 0v675M720 0v675M840 0v675M960 0v675M1080 0v675" stroke="#ffffff" stroke-opacity=".045"/>
+  <rect x="64" y="72" width="312" height="532" rx="28" fill="#0f131d" stroke="#2b3345"/>
+  <circle cx="118" cy="135" r="24" fill="url(#purple)"/>
+  <rect x="160" y="119" width="154" height="16" rx="8" fill="#f8fafc"/>
+  <rect x="160" y="148" width="104" height="12" rx="6" fill="#94a3b8"/>
+  <rect x="98" y="215" width="226" height="34" rx="10" fill="#232a3a"/>
+  <rect x="98" y="272" width="178" height="34" rx="10" fill="#232a3a"/>
+  <rect x="98" y="329" width="214" height="34" rx="10" fill="#232a3a"/>
+  <rect x="98" y="386" width="150" height="34" rx="10" fill="#232a3a"/>
+  <rect x="420" y="72" width="716" height="532" rx="28" fill="#111827" stroke="#2b3345"/>
+  <rect x="466" y="120" width="548" height="166" rx="18" fill="#0b1019" stroke="#5865f2" stroke-width="4"/>
+  <rect x="494" y="148" width="116" height="14" rx="7" fill="#22d3ee"/>
+  <text x="494" y="205" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="900">Server status embed</text>
+  <text x="494" y="248" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="24">Players, uptime, queue, and restart alerts</text>
+  <rect x="466" y="322" width="278" height="212" rx="18" fill="#0b1019" stroke="#243044"/>
+  <text x="498" y="378" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800">RCON bridge</text>
+  <text x="498" y="428" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="22">/server command</text>
+  <text x="498" y="466" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="22">logs action result</text>
+  <rect x="776" y="322" width="278" height="212" rx="18" fill="#0b1019" stroke="#243044"/>
+  <text x="808" y="378" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800">Database</text>
+  <text x="808" y="428" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="22">tickets, bans, roles</text>
+  <text x="808" y="466" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="22">persistent server data</text>
+</svg>

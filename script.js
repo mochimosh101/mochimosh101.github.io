@@ -1,4 +1,5 @@
 const includePartials = async () => {
+  const includeVersion = "20260623d";
   const includeElements = Array.from(document.querySelectorAll("x-include"));
 
   await Promise.all(includeElements.map(async (element) => {
@@ -6,7 +7,9 @@ const includePartials = async () => {
     if (!src) return;
 
     try {
-      const response = await fetch(src);
+      const url = new URL(src, window.location.origin);
+      if (!url.searchParams.has("v")) url.searchParams.set("v", includeVersion);
+      const response = await fetch(url, { cache: "no-store" });
       if (!response.ok) throw new Error(`Unable to load ${src}`);
 
       const wrapper = document.createElement("div");

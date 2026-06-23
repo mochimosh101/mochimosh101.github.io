@@ -1,15 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Mochi mark">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Mochi portfolio mark">
   <defs>
-    <linearGradient id="g" x1="10" y1="8" x2="54" y2="58" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#b36cff"/>
-      <stop offset=".52" stop-color="#7b4dff"/>
-      <stop offset="1" stop-color="#4d8dff"/>
+    <linearGradient id="bg" x1="8" y1="7" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9b5cff"/>
+      <stop offset=".55" stop-color="#6f55ff"/>
+      <stop offset="1" stop-color="#20d3e8"/>
     </linearGradient>
-    <filter id="s" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#20103d" flood-opacity=".45"/>
-    </filter>
+    <linearGradient id="line" x1="15" y1="15" x2="49" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#d7fbff"/>
+    </linearGradient>
   </defs>
-  <rect x="5" y="5" width="54" height="54" rx="14" fill="url(#g)" filter="url(#s)"/>
-  <path d="M47 13h5v5h-5zM42 18h5v5h-5z" fill="#d9fff8" opacity=".95"/>
-  <text x="32" y="43" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900" fill="#fff">M</text>
+  <rect x="4" y="4" width="56" height="56" rx="16" fill="#0b1020"/>
+  <rect x="7" y="7" width="50" height="50" rx="14" fill="url(#bg)"/>
+  <path d="M13 47V18h8l11 13 11-13h8v29h-9V31L32 43 22 31v16z" fill="url(#line)"/>
+  <path d="M14 14h14M36 50h14" stroke="#c9fbff" stroke-width="3" stroke-linecap="round" opacity=".75"/>
+  <circle cx="48" cy="16" r="3" fill="#ffffff"/>
+  <circle cx="54" cy="22" r="2" fill="#c9fbff"/>
 </svg>

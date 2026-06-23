@@ -1,27 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
-        <title>Projects | Jochim Edago</title>
-        <link rel="stylesheet" href="/styles.css">
-        <link rel="icon" type="image/png" href="/imgs/PF-Sketch.png">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-        <script src="/script.js"></script>
-      </head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Projects | Jochim Edago</title>
+    <meta name="description" content="Browse Jochim Edago's websites, stores, homelab systems, plugins, security work, and game tools.">
+    <link rel="stylesheet" href="/styles.css?v=20260623b">
+    <link rel="icon" type="image/png" href="/imgs/sichi-logo.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="/script.js?v=20260623b" defer></script>
+  </head>
   <body>
     <x-include src="/top-nav.html"></x-include>
-    <header class="page-hero">
-      <img src="/imgs/PF-Sketch.png" alt="PF Sketch">  
-      <p class="eyebrow">Portfolio</p>
-      <h1>Projects</h1>
-    </header>
-    <main class="contents">
-      <x-include src="/project-card.html"></x-include>
+
+    <main class="projects-main">
+      <section class="projects-hero">
+        <div>
+          <p class="eyebrow">Portfolio hub</p>
+          <h1>Projects built across web, servers, stores, and tools.</h1>
+          <p>Everything is grouped so visitors can browse fast: screenshots, month/year stamps, what each project does, and how it connects to the bigger setup.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#all-projects">Browse projects</a>
+            <a class="button button-secondary" href="#homelab-details">See homelab</a>
+          </div>
+        </div>
+        <div class="interactive-orbit" aria-label="Interactive portfolio stack" data-lab-console>
+          <button type="button" data-console-choice="web">Web</button>
+          <button type="button" data-console-choice="docker">Docker</button>
+          <button type="button" data-console-choice="mail">Email</button>
+          <button type="button" data-console-choice="plugins">Plugins</button>
+          <div class="console-screen">
+            <span data-console-title>Web stack</span>
+            <strong data-console-value>portfolio.sichi.me</strong>
+            <p data-console-copy>Hosted portfolio, storefront pages, and project screenshots on a custom subdomain.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="all-projects" class="section-block">
+        <x-include src="/project-card.html"></x-include>
+      </section>
+
+      <section id="sichi-shop" class="section-block project-detail">
+        <div class="detail-copy">
+          <span class="date-chip">June 2026</span>
+          <h2>Sichi Shop</h2>
+          <p>Custom shift knob and cabin goods storefront with product browsing, a request cart, mobile layout, and a checkout flow that helps customers send fitment details clearly.</p>
+          <ul class="clean-list">
+            <li>Product filters for can knobs, printed parts, and cabin goods.</li>
+            <li>Checkout note builder for contact, car details, shipping, and fitment.</li>
+            <li>Mobile screenshots captured so the project looks sharp on portfolio cards.</li>
+          </ul>
+        </div>
+        <div class="screenshot-wall">
+          <img src="/imgs/screenshots/sichi-shop.png" alt="Sichi Shop desktop screenshot" loading="lazy">
+          <img src="/imgs/screenshots/sichi-checkout.png" alt="Sichi Shop checkout screenshot" loading="lazy">
+          <img src="/imgs/screenshots/sichi-mobile.png" alt="Sichi Shop mobile screenshot" loading="lazy">
+        </div>
+      </section>
+
+      <section id="homelab-details" class="section-block project-detail reverse">
+        <div class="detail-copy">
+          <span class="date-chip">June 2026</span>
+          <h2>Homelab, Docker, email, and routing</h2>
+          <p>The portfolio is now part of the same homelab story: a live Nginx container, Cloudflare Tunnel public route, custom `portfolio.sichi.me` hostname, and server-side routing through the existing stack.</p>
+          <ul class="clean-list">
+            <li>Docker stacks for portfolio hosting, Steam Farm, mail services, and server utilities.</li>
+            <li>Cloudflare Tunnel routes for public apps without exposing random ports.</li>
+            <li>Domain mail and DNS learning grouped into the Homelab category.</li>
+          </ul>
+        </div>
+        <div class="system-grid">
+          <article><span>Docker</span><strong>mochi-portfolio</strong><p>Nginx static hosting for this portfolio.</p></article>
+          <article><span>Routing</span><strong>Cloudflare Tunnel</strong><p>Public hostnames routed into the home server stack.</p></article>
+          <article><span>Email</span><strong>Domain mail</strong><p>Mail server and custom domain email notes.</p></article>
+          <article><span>Admin</span><strong>Traefik / Nginx</strong><p>Internal routing layer for multiple services.</p></article>
+        </div>
+      </section>
+
+      <section id="steam-farm" class="section-block project-detail">
+        <div class="detail-copy">
+          <span class="date-chip">June 2026</span>
+          <h2>Mochi's Steam Farm</h2>
+          <p>A branded customer portal and containerized service stack with public pages, account dashboards, service requests, and a separated admin path.</p>
+          <ul class="clean-list">
+            <li>Public route on the Sichi domain family.</li>
+            <li>Customer-facing pages separate from admin management.</li>
+            <li>Container services connected through the homelab proxy network.</li>
+          </ul>
+        </div>
+        <div class="terminal-card">
+          <span>service map</span>
+          <pre>farm.sichi.me        -> customer portal
+portfolio.sichi.me   -> portfolio
+mochi-proxy network  -> shared routing
+docker stacks        -> managed services</pre>
+        </div>
+      </section>
+
+      <section id="plugins" class="section-block project-detail reverse">
+        <div class="detail-copy">
+          <span class="date-chip">June 2026</span>
+          <h2>Plugins and server tooling</h2>
+          <p>Server-side work gets its own category now: plugin planning, game server utilities, Discord bot services, item catalogs, and automation around community servers.</p>
+          <ul class="clean-list">
+            <li>RocketMod-focused Unturned plugin planning and server utility direction.</li>
+            <li>Discord bot service work running from the homelab stack.</li>
+            <li>Moonlight item browser with local icon sync and fast item lookup.</li>
+          </ul>
+        </div>
+        <div class="plugin-board">
+          <article><span>Plugin</span><strong>Server utilities</strong><p>Tools and plugin plans for game communities.</p></article>
+          <article><span>Bot</span><strong>Discord services</strong><p>Hosted bot stack for community automation.</p></article>
+          <article><span>Game tool</span><strong>Item browser</strong><p>Searchable icon and item lookup for players.</p></article>
+        </div>
+      </section>
     </main>
+
     <x-include src="/footer.html"></x-include>
   </body>
 </html>
-

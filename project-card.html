@@ -1,29 +1,126 @@
-<div class="project-card">
-    <a class="card-body project-category-card" href="/project/tebex.html">
-      <div class="card-content">
-        <h2>Tebex</h2>
-        <h5>2022 - PRESENT</h5>
-        <h4>Game Web Store</h4>
-        <p class="card-link">Open category&gt;&gt;</p>
+<section class="project-browser" data-project-browser>
+  <aside class="project-rail" aria-label="Project filters">
+    <p class="eyebrow">Browse</p>
+    <h2>Project categories</h2>
+    <p>Filter the work by what you want to see: live websites, storefronts, homelab systems, server plugins, security learning, or game tools.</p>
+    <div class="filter-pills" role="list">
+      <button class="filter-pill is-active" type="button" data-project-filter="all">All</button>
+      <button class="filter-pill" type="button" data-project-filter="website">Websites</button>
+      <button class="filter-pill" type="button" data-project-filter="store">Stores</button>
+      <button class="filter-pill" type="button" data-project-filter="homelab">Homelab</button>
+      <button class="filter-pill" type="button" data-project-filter="plugin">Plugins</button>
+      <button class="filter-pill" type="button" data-project-filter="security">Security</button>
+      <button class="filter-pill" type="button" data-project-filter="game">Game Tools</button>
+    </div>
+    <div class="project-count"><strong data-project-count>10</strong> shown</div>
+  </aside>
+
+  <div class="project-card-grid">
+    <a class="portfolio-card" href="/project/project.html#sichi-shop" data-project-item data-category="website store" data-title="Sichi Shop" data-date="June 2026" data-summary="Custom shift knob storefront with product filters, request cart, checkout notes, and mobile screenshots.">
+      <img src="/imgs/screenshots/sichi-shop.png" alt="Sichi Shop homepage screenshot" loading="lazy">
+      <div>
+        <span class="date-chip">June 2026</span>
+        <h3>Sichi Shop</h3>
+        <p>Custom shift knobs, cabin goods, product filters, request cart, and checkout flow.</p>
+        <div class="tag-row"><span>Website</span><span>Store</span><span>Mobile</span></div>
       </div>
-      <img class="card-image" src="/imgs/tebex-page.png" alt="Tebex storefront preview">
     </a>
-    <a class="card-body project-category-card" href="/project/homelab.html">
-        <div class="card-content">
-            <h2>Homelab</h2>
-            <h5>2020 - PRESENT</h5>
-            <h4>Home Lab</h4>
-            <p class="card-link">Open category&gt;&gt;</p>
-          </div>
-          <img class="card-image" src="/imgs/homelab.jpg" alt="Network cables representing a homelab">
+
+    <a class="portfolio-card" href="/" data-project-item data-category="website" data-title="Portfolio Website" data-date="June 2026" data-summary="Live portfolio hosted on the homelab with Cloudflare Tunnel, Nginx, and a custom subdomain.">
+      <img src="/imgs/screenshots/home.png" alt="Portfolio homepage screenshot" loading="lazy">
+      <div>
+        <span class="date-chip">June 2026</span>
+        <h3>Portfolio Website</h3>
+        <p>Personal portfolio moved from GitHub Pages style hosting to a self-hosted subdomain.</p>
+        <div class="tag-row"><span>Website</span><span>Cloudflare</span><span>Nginx</span></div>
+      </div>
     </a>
-    <a class="card-body project-category-card" href="/project/cyber-security.html">
-        <div class="card-content">
-            <h2>Cyber Security</h2>
-            <h5>2020 - PRESENT</h5>
-            <h4>Cyber Security</h4>
-            <p class="card-link">Open category&gt;&gt;</p>
-          </div>
-          <img class="card-image" src="/imgs/cybersecurity.jpg" alt="Cyber security interface background">
+
+    <a class="portfolio-card" href="/project/homelab.html" data-project-item data-category="homelab" data-title="Homelab Server" data-date="June 2026" data-summary="Docker stacks, Cloudflare routing, domain mail, Traefik/Nginx routing, and service documentation.">
+      <img src="/imgs/screenshots/homelab.png" alt="Homelab project screenshot" loading="lazy">
+      <div>
+        <span class="date-chip">June 2026</span>
+        <h3>Homelab Server</h3>
+        <p>Docker, Cloudflare Tunnel, routing, domain mail, server docs, and self-hosted services.</p>
+        <div class="tag-row"><span>Docker</span><span>Email</span><span>Server</span></div>
+      </div>
+    </a>
+
+    <a class="portfolio-card" href="/project/project.html#homelab-details" data-project-item data-category="homelab" data-title="Docker Service Stack" data-date="June 2026" data-summary="Portfolio hosting, Steam Farm, Discord bot, and other services organized as Docker stacks.">
+      <img src="/imgs/screenshots/homelab.png" alt="Docker homelab stack screenshot" loading="lazy">
+      <div>
+        <span class="date-chip">June 2026</span>
+        <h3>Docker Service Stack</h3>
+        <p>Portfolio hosting, public web services, Discord bot work, and server apps running from Docker.</p>
+        <div class="tag-row"><span>Docker</span><span>Nginx</span><span>Services</span></div>
+      </div>
+    </a>
+
+    <a class="portfolio-card" href="/project/project.html#homelab-details" data-project-item data-category="homelab" data-title="Domain Email Server" data-date="June 2026" data-summary="Custom domain mail and DNS work grouped into the homelab infrastructure archive.">
+      <img src="/imgs/linkedin/domain-mail.jpg" alt="Domain mail LinkedIn post thumbnail" loading="lazy">
+      <div>
+        <span class="date-chip">June 2026</span>
+        <h3>Domain Email Server</h3>
+        <p>Custom domain mail, DNS records, mail host notes, and web presence infrastructure.</p>
+        <div class="tag-row"><span>Email</span><span>DNS</span><span>Mailu</span></div>
+      </div>
+    </a>
+
+    <a class="portfolio-card" href="/project/project.html#steam-farm" data-project-item data-category="homelab website" data-title="Mochi's Steam Farm" data-date="June 2026" data-summary="Branded customer portal with account dashboard, service requests, public route, and separated admin area.">
+      <img src="/imgs/screenshots/projects.png" alt="Projects page screenshot" loading="lazy">
+      <div>
+        <span class="date-chip">June 2026</span>
+        <h3>Mochi's Steam Farm</h3>
+        <p>Public customer portal, service pages, account flow, container stack, and admin separation.</p>
+        <div class="tag-row"><span>Portal</span><span>Docker</span><span>Backend</span></div>
+      </div>
+    </a>
+
+    <a class="portfolio-card" href="/project/project.html#plugins" data-project-item data-category="plugin game" data-title="Server Plugins" data-date="June 2026" data-summary="Game/server plugin work, RocketMod planning, Discord bot services, and server automation utilities.">
+      <img src="/imgs/moonlight.png" alt="Moonlight project artwork" loading="lazy">
+      <div>
+        <span class="date-chip">June 2026</span>
+        <h3>Server Plugins</h3>
+        <p>Game server utilities, RocketMod-focused planning, Discord bot services, and automation tools.</p>
+        <div class="tag-row"><span>Plugins</span><span>Unturned</span><span>Bot</span></div>
+      </div>
+    </a>
+
+    <a class="portfolio-card" href="/icons.html" data-project-item data-category="game website" data-title="Moonlight Item Browser" data-date="June 2026" data-summary="Searchable item browser with icon sync, item metadata, copy buttons, and mobile-friendly filtering.">
+      <img src="/imgs/screenshots/item-browser.png" alt="Moonlight item browser screenshot" loading="lazy">
+      <div>
+        <span class="date-chip">June 2026</span>
+        <h3>Moonlight Item Browser</h3>
+        <p>Large searchable game item catalog with icons, filters, copy actions, and responsive layout.</p>
+        <div class="tag-row"><span>Game Tool</span><span>Search</span><span>Icons</span></div>
+      </div>
+    </a>
+
+    <a class="portfolio-card" href="/project/tebex.html" data-project-item data-category="store website" data-title="Tebex Storefronts" data-date="February-May 2023" data-summary="Rust, Minecraft, and Unturned storefronts with branded package pages and purchase flows.">
+      <img src="/imgs/screenshots/tebex.png" alt="Tebex project screenshot" loading="lazy">
+      <div>
+        <span class="date-chip">Feb-May 2023</span>
+        <h3>Tebex Storefronts</h3>
+        <p>Rust, Minecraft, and Unturned web stores for server communities and package sales.</p>
+        <div class="tag-row"><span>Stores</span><span>Tebex</span><span>Client Work</span></div>
+      </div>
+    </a>
+
+    <a class="portfolio-card" href="/project/cyber-security.html" data-project-item data-category="security" data-title="Cyber Security" data-date="2020-Present" data-summary="TryHackMe, Level Effect, help desk support, and practical security fundamentals.">
+      <img src="/imgs/screenshots/cyber-security.png" alt="Cyber security project screenshot" loading="lazy">
+      <div>
+        <span class="date-chip">2020-Present</span>
+        <h3>Cyber Security</h3>
+        <p>Security training, support work, incident-minded troubleshooting, and learning notes.</p>
+        <div class="tag-row"><span>Security</span><span>Support</span><span>Training</span></div>
+      </div>
     </a>
   </div>
+
+  <div class="spotlight-card" data-project-spotlight>
+    <p class="eyebrow">Selected</p>
+    <h3>Sichi Shop</h3>
+    <span>June 2026</span>
+    <p>Custom shift knob storefront with product filters, request cart, checkout notes, and mobile screenshots.</p>
+  </div>
+</section>

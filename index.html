@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portfolio of Jochim Edago, a full stack developer building game stores, server communities, and web experiences.">
+  <meta name="description" content="Portfolio of Jochim Edago, covering websites, game stores, homelab hosting, plugins, security learning, and server tools.">
   <title>Jochim Edago | Full Stack Developer</title>
-  <link rel="icon" type="image/png" href="/imgs/PF-Sketch.png">
+  <link rel="icon" type="image/png" href="/imgs/sichi-logo.png">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://unpkg.com">
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles.css?v=20260623b">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script src="/script.js" defer></script>
+  <script src="/script.js?v=20260623b" defer></script>
 </head>
 <body>
   <x-include src="/top-nav.html"></x-include>
@@ -20,32 +20,49 @@
   <main>
     <section class="hero-section">
       <div class="hero-copy">
-        <p class="eyebrow">Portfolio</p>
+        <p class="eyebrow">Sichi Portfolio</p>
         <h1>Jochim Edago</h1>
-        <p class="hero-lede">Full stack developer creating polished game stores, community tools, and self-hosted web projects with fast, practical interfaces.</p>
+        <p class="hero-lede">Websites, server tools, game stores, homelab systems, and security learning, presented with screenshots, dates, and clear project categories.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="/project/project.html">View Projects</a>
-          <a class="button button-secondary" href="https://github.com/mochimosh101" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="button button-secondary" href="/project/project.html#homelab-details">Homelab Stack</a>
         </div>
       </div>
-      <div class="hero-media" aria-label="Portfolio profile artwork">
-        <img src="/imgs/PF-Sketch.png" alt="Jochim Edago profile sketch">
+      <div class="hero-media hero-console" aria-label="Interactive portfolio preview" data-lab-console>
+        <div class="console-screen">
+          <span data-console-title>Live hosting</span>
+          <strong data-console-value>portfolio.sichi.me</strong>
+          <p data-console-copy>Self-hosted portfolio running through Docker, Nginx, and Cloudflare Tunnel.</p>
+        </div>
+        <div class="console-buttons">
+          <button type="button" data-console-choice="web">Web</button>
+          <button type="button" data-console-choice="docker">Docker</button>
+          <button type="button" data-console-choice="mail">Email</button>
+          <button type="button" data-console-choice="plugins">Plugins</button>
+        </div>
       </div>
     </section>
 
     <section class="stats-strip" aria-label="Portfolio highlights">
       <div>
-        <strong>15+</strong>
-        <span>Storefront projects</span>
+        <strong>June 2026</strong>
+        <span>Portfolio hosted on Sichi</span>
       </div>
       <div>
-        <strong>2020</strong>
-        <span>Started homelab work</span>
+        <strong>8</strong>
+        <span>Project categories</span>
       </div>
       <div>
-        <strong>Full stack</strong>
-        <span>Frontend, backend, hosting</span>
+        <strong>2020-Present</strong>
+        <span>Security and homelab growth</span>
       </div>
+    </section>
+
+    <section class="section-block quick-nav-section">
+      <a href="/project/project.html#sichi-shop"><span>June 2026</span><strong>Sichi Shop</strong><small>Storefront and checkout screenshots</small></a>
+      <a href="/project/project.html#homelab-details"><span>June 2026</span><strong>Homelab</strong><small>Docker, routing, domain mail</small></a>
+      <a href="/project/project.html#plugins"><span>June 2026</span><strong>Plugins</strong><small>Server utilities and game tools</small></a>
+      <a href="/project/tebex.html"><span>Feb-May 2023</span><strong>Tebex</strong><small>Game store builds</small></a>
     </section>
 
     <section class="section-block snapshot-section">
@@ -58,28 +75,28 @@
       </div>
 
       <div class="snapshot-grid">
-        <a class="snapshot-card snapshot-card-large" href="/">
-          <img src="/imgs/screenshots/home.png" alt="Portfolio homepage screenshot" loading="lazy">
+        <a class="snapshot-card snapshot-card-large" href="/project/project.html#sichi-shop">
+          <img src="/imgs/screenshots/sichi-shop.png" alt="Sichi Shop desktop screenshot" loading="lazy">
           <div>
-            <p class="project-date">Portfolio refresh</p>
-            <h3>Responsive portfolio redesign</h3>
-            <p>Cleaner homepage, stronger mobile layout, polished navigation, and a tighter project presentation.</p>
+            <p class="project-date">June 2026</p>
+            <h3>Sichi Shop storefront</h3>
+            <p>Product filters, request cart, checkout notes, and mobile-friendly shopping pages.</p>
           </div>
         </a>
 
-        <a class="snapshot-card" href="/project/project.html">
-          <img src="/imgs/screenshots/projects.png" alt="Project category page screenshot" loading="lazy">
+        <a class="snapshot-card" href="/project/project.html#sichi-shop">
+          <img src="/imgs/screenshots/sichi-checkout.png" alt="Sichi Shop checkout screenshot" loading="lazy">
           <div>
-            <p class="project-date">Project categories</p>
-            <h3>Tebex, Homelab, and Cyber Security</h3>
-            <p>Dedicated category entry points for storefront work, home server projects, and security learning.</p>
+            <p class="project-date">June 2026</p>
+            <h3>Checkout flow</h3>
+            <p>Step-by-step request details for customer contact, fitment, and shipping notes.</p>
           </div>
         </a>
 
-        <a class="snapshot-card" href="/project/homelab.html">
+        <a class="snapshot-card" href="/project/project.html#homelab-details">
           <img src="/imgs/screenshots/homelab.png" alt="Homelab category page screenshot" loading="lazy">
           <div>
-            <p class="project-date">Home lab server</p>
+            <p class="project-date">June 2026</p>
             <h3>Self-hosting and infrastructure notes</h3>
             <p>TrueNAS, NAS experiments, domain mail, Docker, Portainer, and self-hosting work collected in one place.</p>
           </div>
@@ -88,7 +105,7 @@
         <a class="snapshot-card" href="/project/cyber-security.html">
           <img src="/imgs/screenshots/cyber-security.png" alt="Cyber Security category page screenshot" loading="lazy">
           <div>
-            <p class="project-date">Security learning</p>
+            <p class="project-date">2020-Present</p>
             <h3>Training and technical support</h3>
             <p>TryHackMe, Level Effect study notes, and rapid-response support experience grouped together.</p>
           </div>
@@ -184,6 +201,10 @@
       <div class="section-heading">
         <p class="eyebrow">Selected work</p>
         <h2>Featured projects</h2>
+      </div>
+      <div class="home-project-callout">
+        <a href="/project/project.html#all-projects">Open the full project browser</a>
+        <span>Includes Websites, Stores, Homelab, Plugins, Security, and Game Tools.</span>
       </div>
 
       <div class="featured-grid">

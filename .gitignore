@@ -1,3 +1,5 @@
 .edge-profile/
+.edge-profile-preview/
+.agents/
 mobile-*.png
 tmp-mobile-check.js

@@ -914,13 +914,18 @@ h3 {
     background-attachment: scroll;
   }
 
+  main {
+    padding-top: 82px;
+  }
+
   .site-nav {
     top: 10px;
     width: calc(100% - 20px);
   }
 
   h1 {
-    font-size: clamp(3.1rem, 17vw, 5rem);
+    font-size: clamp(2.45rem, 13vw, 3.55rem);
+    line-height: 0.95;
   }
 
   h2 {
@@ -928,7 +933,18 @@ h3 {
   }
 
   .hero-section {
-    gap: 28px;
+    min-height: auto;
+    gap: 22px;
+    padding: 12px 0 38px;
+  }
+
+  .hero-copy {
+    min-width: 0;
+  }
+
+  .hero-lede {
+    font-size: 1rem;
+  }
   }
 
   .hero-actions,

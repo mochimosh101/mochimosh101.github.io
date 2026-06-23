@@ -1,19 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Sichi portfolio mark">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Mochi portfolio mark">
   <defs>
-    <linearGradient id="bg" x1="8" y1="7" x2="56" y2="58" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#9b5cff"/>
-      <stop offset=".55" stop-color="#6f55ff"/>
-      <stop offset="1" stop-color="#20d3e8"/>
+    <linearGradient id="bg" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#a855f7"/>
+      <stop offset=".48" stop-color="#6d5dfc"/>
+      <stop offset="1" stop-color="#18d3df"/>
     </linearGradient>
-    <linearGradient id="line" x1="15" y1="15" x2="49" y2="48" gradientUnits="userSpaceOnUse">
+    <linearGradient id="m" x1="14" y1="16" x2="50" y2="48" gradientUnits="userSpaceOnUse">
       <stop stop-color="#ffffff"/>
-      <stop offset="1" stop-color="#d7fbff"/>
+      <stop offset="1" stop-color="#d9fbff"/>
     </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="7" stdDeviation="6" flood-color="#6d5dfc" flood-opacity=".45"/>
+    </filter>
   </defs>
-  <rect x="4" y="4" width="56" height="56" rx="16" fill="#0b1020"/>
-  <rect x="7" y="7" width="50" height="50" rx="14" fill="url(#bg)"/>
-  <path d="M13 47V18h8l11 13 11-13h8v29h-9V31L32 43 22 31v16z" fill="url(#line)"/>
-  <path d="M14 14h14M36 50h14" stroke="#c9fbff" stroke-width="3" stroke-linecap="round" opacity=".75"/>
-  <circle cx="48" cy="16" r="3" fill="#ffffff"/>
-  <circle cx="54" cy="22" r="2" fill="#c9fbff"/>
+  <rect x="4" y="4" width="56" height="56" rx="17" fill="#070b15"/>
+  <rect x="7" y="7" width="50" height="50" rx="15" fill="url(#bg)" filter="url(#glow)"/>
+  <path d="M14 47V18h8.2L32 31.2 41.8 18H50v29h-8.4V31.6L33.4 43h-2.8l-8.2-11.4V47z" fill="url(#m)"/>
+  <path d="M16 14h12M36 50h12" stroke="#c9fbff" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+  <path d="M49 13v4M47 15h4M53 21v3M51.5 22.5h3" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
 </svg>

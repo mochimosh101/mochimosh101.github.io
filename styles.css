@@ -103,6 +103,12 @@ main {
   white-space: nowrap;
 }
 
+.brand-text {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -185,86 +191,93 @@ h1 {
 }
 
 .redacted-name {
+  display: grid;
+  gap: clamp(10px, 1.4vw, 16px);
+  width: min(640px, 100%);
+  margin-bottom: 24px;
+  line-height: 1;
+}
+
+.redact-bar {
   position: relative;
-  width: fit-content;
-  max-width: 100%;
-  color: #f7f8ff;
-  letter-spacing: 0.02em;
-  filter: drop-shadow(0 0 18px rgba(57, 200, 214, 0.16));
-  isolation: isolate;
-}
-
-.redacted-name span,
-.redacted-name::before,
-.redacted-name::after {
   display: block;
+  height: clamp(42px, 6.4vw, 86px);
   overflow: hidden;
-  text-shadow: 0 0 18px rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, rgba(57, 200, 214, 0.92), rgba(242, 76, 76, 0.9)),
+    #151923;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28), 0 0 34px rgba(57, 200, 214, 0.14);
+  transform-origin: left center;
+  animation: redactJitter 2.4s steps(2, end) infinite;
 }
 
-.redacted-name::before,
-.redacted-name::after {
-  content: attr(data-glitch);
+.redact-bar-short {
+  width: min(78%, 520px);
+  animation-delay: -0.8s;
+}
+
+.redact-bar-wide {
+  width: min(96%, 640px);
+}
+
+.redact-bar::before,
+.redact-bar::after {
+  content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
-.redacted-name::before {
-  color: #39c8d6;
-  clip-path: inset(0 0 58% 0);
-  transform: translate(-3px, 0);
-  animation: nameGlitchCyan 1.2s steps(2, end) infinite;
+.redact-bar::before {
+  background:
+    linear-gradient(0deg, transparent 0 38%, rgba(255, 255, 255, 0.86) 39% 57%, transparent 58%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 54px);
+  mix-blend-mode: screen;
+  animation: redactScan 1.7s steps(3, end) infinite;
 }
 
-.redacted-name::after {
-  color: #f24c4c;
-  clip-path: inset(52% 0 0 0);
-  transform: translate(3px, 0);
-  animation: nameGlitchRed 0.95s steps(2, end) infinite;
+.redact-bar::after {
+  inset: 18% -3% 52% 4%;
+  background: rgba(7, 11, 21, 0.88);
+  box-shadow: 18px 28px 0 rgba(7, 11, 21, 0.84), -22px 58px 0 rgba(7, 11, 21, 0.74);
+  animation: redactSlice 1.1s steps(2, end) infinite;
 }
 
-@keyframes nameGlitchCyan {
+@keyframes redactJitter {
   0%, 100% {
-    transform: translate(-2px, 0);
-    clip-path: inset(0 0 66% 0);
+    transform: translate(0, 0) skewX(0deg);
   }
 
-  22% {
-    transform: translate(5px, -2px);
-    clip-path: inset(18% 0 46% 0);
+  32% {
+    transform: translate(3px, -1px) skewX(-1deg);
   }
 
-  45% {
-    transform: translate(-6px, 2px);
-    clip-path: inset(36% 0 28% 0);
-  }
-
-  70% {
-    transform: translate(3px, 1px);
-    clip-path: inset(8% 0 70% 0);
+  64% {
+    transform: translate(-2px, 1px) skewX(1deg);
   }
 }
 
-@keyframes nameGlitchRed {
+@keyframes redactScan {
   0%, 100% {
-    transform: translate(2px, 0);
-    clip-path: inset(58% 0 0 0);
+    transform: translateX(-8%);
   }
 
-  28% {
-    transform: translate(-5px, 2px);
-    clip-path: inset(46% 0 16% 0);
+  50% {
+    transform: translateX(8%);
+  }
+}
+
+@keyframes redactSlice {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 0.74;
   }
 
-  54% {
-    transform: translate(7px, -1px);
-    clip-path: inset(70% 0 6% 0);
-  }
-
-  82% {
-    transform: translate(-3px, 1px);
-    clip-path: inset(32% 0 42% 0);
+  50% {
+    transform: translateX(12px);
+    opacity: 0.95;
   }
 }
 
@@ -1028,6 +1041,7 @@ h3 {
 
   .hero-lede {
     font-size: 1rem;
+  }
 
   .hero-actions,
   .button {
@@ -1074,7 +1088,29 @@ h3 {
   }
 
   .page-hero {
-    padding-top: 124px;
+    padding-top: 112px;
+    padding-bottom: 24px;
+  }
+
+  .page-hero img {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 12px;
+  }
+
+  .category-hero-panel {
+    overflow: visible;
+  }
+
+  .category-hero-panel > div {
+    order: 2;
+  }
+
+  .category-hero-panel img {
+    order: 1;
+    min-height: 210px;
+    max-height: 260px;
+    border-bottom: 1px solid var(--line);
   }
 }
 

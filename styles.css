@@ -184,6 +184,90 @@ h1 {
   line-height: 0.9;
 }
 
+.redacted-name {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  color: #f7f8ff;
+  letter-spacing: 0.02em;
+  filter: drop-shadow(0 0 18px rgba(57, 200, 214, 0.16));
+  isolation: isolate;
+}
+
+.redacted-name span,
+.redacted-name::before,
+.redacted-name::after {
+  display: block;
+  overflow: hidden;
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.18);
+}
+
+.redacted-name::before,
+.redacted-name::after {
+  content: attr(data-glitch);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.redacted-name::before {
+  color: #39c8d6;
+  clip-path: inset(0 0 58% 0);
+  transform: translate(-3px, 0);
+  animation: nameGlitchCyan 1.2s steps(2, end) infinite;
+}
+
+.redacted-name::after {
+  color: #f24c4c;
+  clip-path: inset(52% 0 0 0);
+  transform: translate(3px, 0);
+  animation: nameGlitchRed 0.95s steps(2, end) infinite;
+}
+
+@keyframes nameGlitchCyan {
+  0%, 100% {
+    transform: translate(-2px, 0);
+    clip-path: inset(0 0 66% 0);
+  }
+
+  22% {
+    transform: translate(5px, -2px);
+    clip-path: inset(18% 0 46% 0);
+  }
+
+  45% {
+    transform: translate(-6px, 2px);
+    clip-path: inset(36% 0 28% 0);
+  }
+
+  70% {
+    transform: translate(3px, 1px);
+    clip-path: inset(8% 0 70% 0);
+  }
+}
+
+@keyframes nameGlitchRed {
+  0%, 100% {
+    transform: translate(2px, 0);
+    clip-path: inset(58% 0 0 0);
+  }
+
+  28% {
+    transform: translate(-5px, 2px);
+    clip-path: inset(46% 0 16% 0);
+  }
+
+  54% {
+    transform: translate(7px, -1px);
+    clip-path: inset(70% 0 6% 0);
+  }
+
+  82% {
+    transform: translate(-3px, 1px);
+    clip-path: inset(32% 0 42% 0);
+  }
+}
+
 h2 {
   margin-bottom: 14px;
   font-size: clamp(2rem, 5vw, 3.9rem);
@@ -944,8 +1028,6 @@ h3 {
 
   .hero-lede {
     font-size: 1rem;
-  }
-  }
 
   .hero-actions,
   .button {

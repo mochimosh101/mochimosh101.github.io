@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="Homelab infrastructure preview">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07111d"/><stop offset=".55" stop-color="#111827"/><stop offset="1" stop-color="#07343d"/></linearGradient>
+    <linearGradient id="wire" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#22d3ee"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <path d="M0 112h1200M0 224h1200M0 336h1200M0 448h1200M0 560h1200M150 0v675M300 0v675M450 0v675M600 0v675M750 0v675M900 0v675M1050 0v675" stroke="#ffffff" stroke-opacity=".045"/>
+  <rect x="120" y="116" width="300" height="430" rx="24" fill="#101827" stroke="#334155"/>
+  <rect x="166" y="166" width="208" height="48" rx="12" fill="#1f2937"/>
+  <rect x="166" y="250" width="208" height="48" rx="12" fill="#1f2937"/>
+  <rect x="166" y="334" width="208" height="48" rx="12" fill="#1f2937"/>
+  <circle cx="194" cy="190" r="8" fill="#22d3ee"/><circle cx="194" cy="274" r="8" fill="#22d3ee"/><circle cx="194" cy="358" r="8" fill="#22d3ee"/>
+  <rect x="540" y="116" width="540" height="430" rx="24" fill="#101827" stroke="#334155"/>
+  <path d="M420 190C520 190 500 250 600 250H1000M420 274C520 274 520 334 600 334H1000M420 358C520 358 520 418 600 418H1000" stroke="url(#wire)" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <rect x="640" y="190" width="300" height="56" rx="12" fill="#0b101a" stroke="#334155"/>
+  <rect x="640" y="302" width="300" height="56" rx="12" fill="#0b101a" stroke="#334155"/>
+  <rect x="640" y="414" width="300" height="56" rx="12" fill="#0b101a" stroke="#334155"/>
+  <text x="120" y="612" fill="#67e8f9" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900" letter-spacing="5">DOCKER • DNS • TUNNEL • MAIL</text>
+</svg>

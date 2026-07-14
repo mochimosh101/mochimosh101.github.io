@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="Cyber security training preview">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#09111f"/><stop offset=".55" stop-color="#111827"/><stop offset="1" stop-color="#1b1233"/></linearGradient></defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <path d="M0 80h1200M0 160h1200M0 240h1200M0 320h1200M0 400h1200M0 480h1200M0 560h1200M120 0v675M240 0v675M360 0v675M480 0v675M600 0v675M720 0v675M840 0v675M960 0v675M1080 0v675" stroke="#ffffff" stroke-opacity=".04"/>
+  <rect x="106" y="98" width="430" height="478" rx="26" fill="#101827" stroke="#334155"/>
+  <path d="M320 178l138 56v96c0 94-58 154-138 186-80-32-138-92-138-186v-96z" fill="#0f172a" stroke="#22d3ee" stroke-width="8"/>
+  <path d="M260 330l42 42 92-120" stroke="#67e8f9" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <rect x="620" y="128" width="470" height="92" rx="16" fill="#101827" stroke="#334155"/>
+  <rect x="660" y="162" width="230" height="18" rx="9" fill="#f8fafc"/>
+  <rect x="660" y="192" width="330" height="12" rx="6" fill="#64748b"/>
+  <rect x="620" y="272" width="470" height="92" rx="16" fill="#101827" stroke="#334155"/>
+  <rect x="660" y="306" width="300" height="18" rx="9" fill="#f8fafc"/>
+  <rect x="660" y="336" width="250" height="12" rx="6" fill="#64748b"/>
+  <rect x="620" y="416" width="470" height="92" rx="16" fill="#101827" stroke="#334155"/>
+  <rect x="660" y="450" width="260" height="18" rx="9" fill="#f8fafc"/>
+  <rect x="660" y="480" width="310" height="12" rx="6" fill="#64748b"/>
+  <text x="106" y="632" fill="#67e8f9" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="900" letter-spacing="5">SECURITY TRAINING</text>
+</svg>

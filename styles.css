@@ -191,93 +191,109 @@ h1 {
 }
 
 .redacted-name {
-  display: grid;
-  gap: clamp(10px, 1.4vw, 16px);
-  width: min(640px, 100%);
-  margin-bottom: 24px;
+  display: inline-grid;
+  gap: 0.06em;
+  width: fit-content;
+  max-width: 100%;
+  margin-bottom: 22px;
   line-height: 1;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0.03em;
+  filter: drop-shadow(0 0 20px rgba(57, 200, 214, 0.2));
 }
 
-.redact-bar {
+.glitch-token {
   position: relative;
   display: block;
-  height: clamp(42px, 6.4vw, 86px);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 8px;
-  background:
-    linear-gradient(90deg, rgba(57, 200, 214, 0.92), rgba(242, 76, 76, 0.9)),
-    #151923;
-  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28), 0 0 34px rgba(57, 200, 214, 0.14);
-  transform-origin: left center;
-  animation: redactJitter 2.4s steps(2, end) infinite;
+  width: max-content;
+  max-width: 100%;
+  color: #f7f8ff;
+  text-transform: uppercase;
+  text-shadow: 0 0 26px rgba(255, 255, 255, 0.22);
+  isolation: isolate;
 }
 
-.redact-bar-short {
-  width: min(78%, 520px);
-  animation-delay: -0.8s;
-}
-
-.redact-bar-wide {
-  width: min(96%, 640px);
-}
-
-.redact-bar::before,
-.redact-bar::after {
-  content: "";
+.glitch-token::before,
+.glitch-token::after {
+  content: attr(data-text);
   position: absolute;
   inset: 0;
   pointer-events: none;
+  opacity: 0.82;
 }
 
-.redact-bar::before {
+.glitch-token::before {
+  color: #39c8d6;
+  clip-path: inset(0 0 58% 0);
+  transform: translate(-0.05em, 0);
+  animation: mixedNameCyan 1.45s steps(2, end) infinite;
+}
+
+.glitch-token::after {
+  color: #f24c4c;
+  clip-path: inset(54% 0 0 0);
+  transform: translate(0.05em, 0);
+  animation: mixedNameRed 1.05s steps(2, end) infinite;
+}
+
+.glitch-token-last {
+  margin-left: clamp(16px, 3vw, 34px);
+}
+
+.glitch-token-last::before {
+  animation-delay: -0.35s;
+}
+
+.glitch-token-last::after {
+  animation-delay: -0.6s;
+}
+
+.glitch-token span {
+  display: inline-block;
+}
+
+.glitch-token::selection {
+  background: rgba(57, 200, 214, 0.25);
+}
+
+.glitch-token {
   background:
-    linear-gradient(0deg, transparent 0 38%, rgba(255, 255, 255, 0.86) 39% 57%, transparent 58%),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 54px);
-  mix-blend-mode: screen;
-  animation: redactScan 1.7s steps(3, end) infinite;
+    linear-gradient(0deg, transparent 0 43%, rgba(7, 11, 21, 0.72) 44% 58%, transparent 59%),
+    linear-gradient(90deg, transparent, rgba(57, 200, 214, 0.12), transparent);
 }
 
-.redact-bar::after {
-  inset: 18% -3% 52% 4%;
-  background: rgba(7, 11, 21, 0.88);
-  box-shadow: 18px 28px 0 rgba(7, 11, 21, 0.84), -22px 58px 0 rgba(7, 11, 21, 0.74);
-  animation: redactSlice 1.1s steps(2, end) infinite;
-}
-
-@keyframes redactJitter {
+@keyframes mixedNameCyan {
   0%, 100% {
-    transform: translate(0, 0) skewX(0deg);
+    transform: translate(-0.04em, 0);
+    clip-path: inset(0 0 62% 0);
   }
 
-  32% {
-    transform: translate(3px, -1px) skewX(-1deg);
+  30% {
+    transform: translate(0.08em, -0.02em);
+    clip-path: inset(26% 0 44% 0);
   }
 
-  64% {
-    transform: translate(-2px, 1px) skewX(1deg);
-  }
-}
-
-@keyframes redactScan {
-  0%, 100% {
-    transform: translateX(-8%);
-  }
-
-  50% {
-    transform: translateX(8%);
+  62% {
+    transform: translate(-0.08em, 0.02em);
+    clip-path: inset(44% 0 25% 0);
   }
 }
 
-@keyframes redactSlice {
+@keyframes mixedNameRed {
   0%, 100% {
-    transform: translateX(0);
-    opacity: 0.74;
+    transform: translate(0.04em, 0);
+    clip-path: inset(58% 0 0 0);
   }
 
-  50% {
-    transform: translateX(12px);
-    opacity: 0.95;
+  38% {
+    transform: translate(-0.07em, 0.02em);
+    clip-path: inset(36% 0 34% 0);
+  }
+
+  72% {
+    transform: translate(0.1em, -0.01em);
+    clip-path: inset(70% 0 6% 0);
   }
 }
 

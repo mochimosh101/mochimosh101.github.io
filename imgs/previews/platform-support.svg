@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="Support and bug reporting preview">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#111827"/><stop offset=".55" stop-color="#171229"/><stop offset="1" stop-color="#07343d"/></linearGradient></defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect x="104" y="96" width="992" height="478" rx="28" fill="#101827" stroke="#334155"/>
+  <rect x="156" y="154" width="460" height="54" rx="14" fill="#f8fafc" fill-opacity=".08"/>
+  <rect x="156" y="250" width="888" height="48" rx="14" fill="#f8fafc" fill-opacity=".06"/>
+  <rect x="156" y="334" width="736" height="48" rx="14" fill="#f8fafc" fill-opacity=".06"/>
+  <rect x="156" y="418" width="610" height="48" rx="14" fill="#f8fafc" fill-opacity=".06"/>
+  <circle cx="970" cy="180" r="62" fill="#f24c4c" fill-opacity=".22" stroke="#f87171" stroke-width="6"/>
+  <path d="M970 142v48M970 222v4" stroke="#fff" stroke-width="16" stroke-linecap="round"/>
+  <text x="156" y="620" fill="#67e8f9" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="900" letter-spacing="5">SUPPORT • BUG REPORTS • WORKFLOW</text>
+</svg>

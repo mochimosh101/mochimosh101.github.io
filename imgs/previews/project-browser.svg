@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="Project browser preview">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#080d18"/>
+      <stop offset=".6" stop-color="#172033"/>
+      <stop offset="1" stop-color="#062b32"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <path d="M0 96h1200M0 192h1200M0 288h1200M0 384h1200M0 480h1200M0 576h1200M96 0v675M192 0v675M288 0v675M384 0v675M480 0v675M576 0v675M672 0v675M768 0v675M864 0v675M960 0v675M1056 0v675" stroke="#ffffff" stroke-opacity=".045"/>
+  <rect x="82" y="86" width="290" height="500" rx="22" fill="#121826" stroke="#334155"/>
+  <text x="118" y="156" fill="#67e8f9" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="900" letter-spacing="4">BROWSE</text>
+  <rect x="118" y="202" width="150" height="34" rx="10" fill="#22d3ee" fill-opacity=".35"/>
+  <rect x="118" y="254" width="190" height="34" rx="10" fill="#ffffff" fill-opacity=".08"/>
+  <rect x="118" y="306" width="175" height="34" rx="10" fill="#ffffff" fill-opacity=".08"/>
+  <rect x="118" y="358" width="135" height="34" rx="10" fill="#ffffff" fill-opacity=".08"/>
+  <rect x="430" y="86" width="300" height="220" rx="22" fill="#121826" stroke="#334155"/>
+  <rect x="768" y="86" width="350" height="220" rx="22" fill="#121826" stroke="#334155"/>
+  <rect x="430" y="350" width="300" height="236" rx="22" fill="#121826" stroke="#334155"/>
+  <rect x="768" y="350" width="350" height="236" rx="22" fill="#121826" stroke="#334155"/>
+  <rect x="468" y="126" width="224" height="82" rx="14" fill="#22d3ee" fill-opacity=".2"/>
+  <rect x="806" y="126" width="274" height="82" rx="14" fill="#8b5cf6" fill-opacity=".22"/>
+  <rect x="468" y="390" width="224" height="82" rx="14" fill="#f24c4c" fill-opacity=".24"/>
+  <rect x="806" y="390" width="274" height="82" rx="14" fill="#22d3ee" fill-opacity=".16"/>
+  <text x="468" y="252" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="900">Websites</text>
+  <text x="806" y="252" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="900">Homelab</text>
+  <text x="468" y="516" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="900">Plugins</text>
+  <text x="806" y="516" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="900">Security</text>
+</svg>

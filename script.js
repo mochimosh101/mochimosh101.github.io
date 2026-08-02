@@ -1,5 +1,5 @@
 const includePartials = async () => {
-  const includeVersion = "20260802p";
+  const includeVersion = "20260802q";
   const includeElements = Array.from(document.querySelectorAll("x-include"));
 
   await Promise.all(includeElements.map(async (element) => {

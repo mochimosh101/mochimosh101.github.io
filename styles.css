@@ -454,6 +454,10 @@ h3 {
   margin-top: 92px;
 }
 
+.section-block[id] {
+  scroll-margin-top: 112px;
+}
+
 .section-heading {
   display: flex;
   align-items: end;
@@ -589,7 +593,7 @@ h3 {
   aspect-ratio: 16 / 10;
   object-fit: cover;
   object-position: top center;
-  background: #090b10;
+  background: #0d121a;
 }
 
 .snapshot-card-large img {
@@ -838,6 +842,8 @@ h3 {
   height: 100%;
   min-height: 330px;
   object-fit: cover;
+  object-position: top center;
+  background: #0d121a;
 }
 
 .post-section {
@@ -1648,12 +1654,11 @@ body::before {
   aspect-ratio: 16 / 9;
   object-fit: cover;
   object-position: top center;
-  background: #080a0e;
+  background: #0d121a;
 }
 
-.portfolio-card:nth-child(6) img,
-.portfolio-card:nth-child(7) img {
-  object-position: center;
+.portfolio-card img.terminal-capture {
+  object-position: top left;
 }
 
 .portfolio-card div {
@@ -1756,27 +1761,28 @@ body::before {
 
 .screenshot-wall {
   display: grid;
-  grid-template-columns: 1fr 0.7fr;
+  grid-template-columns: minmax(0, 1.35fr) minmax(180px, 0.65fr);
   gap: 10px;
   max-height: none;
   overflow: visible;
+  align-items: start;
 }
 
 .screenshot-wall img {
   width: 100%;
-  height: clamp(220px, 22vw, 320px);
+  height: auto;
   display: block;
   border: 1px solid var(--line);
   border-radius: 8px;
-  object-fit: contain;
+  object-fit: cover;
   object-position: top center;
-  background: #080a0e;
+  background: #0d121a;
 }
 
 .screenshot-wall img:first-child {
   grid-row: span 2;
-  height: 100%;
-  min-height: clamp(450px, 45vw, 650px);
+  height: auto;
+  min-height: 0;
 }
 
 .screenshot-wall.compact-wall img:first-child {
@@ -1784,7 +1790,13 @@ body::before {
 }
 
 .screenshot-wall.compact-wall img {
-  height: 250px;
+  height: auto;
+}
+
+.screenshot-wall img.portrait-shot {
+  width: min(100%, 300px);
+  max-height: 560px;
+  justify-self: center;
 }
 
 .system-grid,
@@ -1898,6 +1910,9 @@ body::before {
 }
 
 @media (max-width: 680px) {
+  .section-block[id] {
+    scroll-margin-top: 24px;
+  }
   body {
     background-attachment: scroll;
   }
@@ -1925,8 +1940,8 @@ body::before {
 
   .projects-main,
   main {
-    width: min(100% - 28px, 1280px) !important;
-    max-width: calc(100vw - 28px) !important;
+    width: min(100% - 32px, 1280px) !important;
+    max-width: calc(100vw - 32px) !important;
     margin-left: auto;
     margin-right: auto;
   }
@@ -1997,12 +2012,12 @@ body::before {
   .screenshot-wall img:first-child {
     grid-row: auto;
     min-height: 0;
-    height: clamp(190px, 58vw, 260px);
+    height: auto;
     max-height: none;
   }
 
   .screenshot-wall.compact-wall img {
-    height: clamp(190px, 58vw, 250px);
+    height: auto;
     max-height: none;
   }
 
@@ -2011,7 +2026,12 @@ body::before {
   }
 
   .screenshot-wall img {
-    height: clamp(190px, 58vw, 260px);
+    height: auto;
+    max-height: none;
+  }
+
+  .screenshot-wall img.portrait-shot {
+    width: min(100%, 340px);
     max-height: none;
   }
 
@@ -2047,6 +2067,12 @@ body::before {
 
   .project-rail {
     padding: 20px;
+    overflow: visible;
+  }
+
+  .project-rail p:not(.eyebrow) {
+    max-width: 100%;
+    overflow-wrap: anywhere;
   }
 
   .project-rail h2 {

@@ -206,10 +206,11 @@ h1 {
 .glitch-token {
   position: relative;
   display: block;
-  overflow: hidden;
-  width: min-content;
+  overflow: visible;
+  width: max-content;
   max-width: 100%;
   padding: 0.02em 0.04em;
+  white-space: nowrap;
   color: #f7f8ff;
   text-transform: uppercase;
   text-shadow: 0 0 18px rgba(255, 255, 255, 0.22);

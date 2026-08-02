@@ -1,5 +1,5 @@
 const includePartials = async () => {
-  const includeVersion = "20260802q";
+  const includeVersion = "20260802s";
   const includeElements = Array.from(document.querySelectorAll("x-include"));
 
   await Promise.all(includeElements.map(async (element) => {
@@ -93,10 +93,10 @@ const setupProjectBrowser = () => {
 
 const setupLabConsole = () => {
   const data = {
-    web: ["Web stack", "portfolio.sichi.me", "Hosted portfolio, Sichi Shop screenshots, category pages, and project navigation."],
-    docker: ["Docker stack", "mochi-portfolio", "Nginx container, proxy network, and self-hosted services grouped in the homelab."],
-    network: ["Network stack", "tunnels + VPN", "Cloudflare Tunnel, private access planning, Traefik routes, and custom subdomains."],
-    plugins: ["Plugin work", "server tools", "Game server utilities, Discord bot services, RCON, and searchable item browser tooling."]
+    web: ["My web stack", "portfolio.sichi.me", "I built the portfolio, storefront pages, project navigation, and responsive layouts."],
+    docker: ["My Docker stack", "mochi-portfolio", "I run Nginx, bots, websites, and other services as containers on my homelab."],
+    network: ["My network", "tunnels + VPN", "I use Cloudflare Tunnel, private access, Traefik routes, and custom subdomains."],
+    plugins: ["My server tools", "plugins + bots", "I build game-server utilities, Discord services, RCON tools, and a searchable item browser."]
   };
 
   document.querySelectorAll("[data-lab-console]").forEach((consoleEl) => {

@@ -3,24 +3,24 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Projects | Name Redacted</title>
-    <meta name="description" content="Browse Name Redacted's websites, stores, homelab systems, plugins, security work, and game tools.">
-    <link rel="stylesheet" href="/styles.css?v=20260802q">
+    <title>Projects | Mochi Portfolio</title>
+    <meta name="description" content="Websites, stores, homelab systems, plugins, security work, and game tools built by Mochi.">
+    <link rel="stylesheet" href="/styles.css?v=20260802s">
     <link rel="icon" type="image/svg+xml" href="/imgs/mochi-mark.svg">
-    <script src="/script.js?v=20260802q" defer></script>
+    <script src="/script.js?v=20260802s" defer></script>
   </head>
   <body>
-    <x-include src="/top-nav.html?v=20260802q"></x-include>
+    <x-include src="/top-nav.html?v=20260802s"></x-include>
 
     <main class="projects-main">
       <section class="projects-hero">
         <div>
-          <p class="eyebrow">Portfolio hub</p>
-          <h1>Projects across web, servers, and tools.</h1>
-          <p>Everything is grouped so visitors can browse fast: screenshots, month/year stamps, what each project does, and how it connects to the bigger setup.</p>
+          <p class="eyebrow">My work</p>
+          <h1>Websites, servers, and tools I've built.</h1>
+          <p>I build storefronts, self-hosted services, game-server tools, and security projects. Each entry shows when I worked on it, what I built, and screenshots from the real project.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#all-projects">Browse projects</a>
-            <a class="button button-secondary" href="#homelab-details">See homelab</a>
+            <a class="button button-primary" href="#all-projects">View my projects</a>
+            <a class="button button-secondary" href="#homelab-details">Explore my homelab</a>
           </div>
         </div>
         <div class="interactive-orbit" aria-label="Interactive portfolio stack" data-lab-console>
@@ -31,24 +31,24 @@
           <div class="console-screen">
             <span data-console-title>Web stack</span>
             <strong data-console-value>portfolio.sichi.me</strong>
-            <p data-console-copy>Hosted portfolio, storefront pages, and project screenshots on a custom subdomain.</p>
+            <p data-console-copy>I host this portfolio and its project pages on my own subdomain.</p>
           </div>
         </div>
       </section>
 
       <section id="all-projects" class="section-block">
-        <x-include src="/project-card.html?v=20260802q"></x-include>
+        <x-include src="/project-card.html?v=20260802s"></x-include>
       </section>
 
       <section id="sichi-shop" class="section-block project-detail">
         <div class="detail-copy">
           <span class="date-chip">June 2026</span>
           <h2>Sichi Shop</h2>
-          <p>Custom shift knob and cabin goods storefront with product browsing, a request cart, mobile layout, and a checkout flow that helps customers send fitment details clearly.</p>
+          <p>I built this storefront for custom shift knobs and cabin goods, with product filters, a request cart, and a mobile checkout flow for fitment details.</p>
           <ul class="clean-list">
             <li>Product filters for can knobs, printed parts, and cabin goods.</li>
             <li>Checkout note builder for contact, car details, shipping, and fitment.</li>
-            <li>Mobile screenshots captured so the project looks sharp on portfolio cards.</li>
+            <li>Responsive layouts for browsing and sending requests from a phone.</li>
           </ul>
         </div>
         <div class="screenshot-wall">
@@ -62,11 +62,11 @@
         <div class="detail-copy">
           <span class="date-chip">June 2026</span>
           <h2>Homelab, Docker, tunnels, and routing</h2>
-          <p>The portfolio is now part of the same homelab story: a live Nginx container, Cloudflare Tunnel public route, custom `portfolio.sichi.me` hostname, and server-side routing through the existing stack.</p>
+          <p>I host this portfolio in an Nginx container on my homelab and publish it through Cloudflare Tunnel at <code>portfolio.sichi.me</code>.</p>
           <ul class="clean-list">
             <li>Docker stacks for portfolio hosting, Steam Farm, bot services, and server utilities.</li>
             <li>Cloudflare Tunnel routes for public apps without exposing random ports.</li>
-            <li>Traefik, Nginx, Cloudflare, and private network routing grouped into the Homelab category.</li>
+            <li>Traefik, Nginx, Cloudflare, and private network routes working together across the stack.</li>
           </ul>
         </div>
         <div class="system-grid">
@@ -81,7 +81,7 @@
         <div class="detail-copy">
           <span class="date-chip">July 2026</span>
           <h2>OpenAI, MCP, and AI Bridge tooling</h2>
-          <p>Private GPT and local tooling work for project-aware automation: action schemas, profile boundaries, MCP-style connectors, protected server access, and repeatable verification.</p>
+          <p>I built private GPT and local integration tools with action schemas, isolated project profiles, MCP connectors, protected server access, and repeatable checks.</p>
           <ul class="clean-list">
             <li>AI Bridge release v2.3.1 with profile separation, health checks, and rollback paths.</li>
             <li>OpenAI/Codex workflow work covering dedicated project GPTs, tool schemas, and safe action boundaries.</li>
@@ -100,7 +100,7 @@
         <div class="detail-copy">
           <span class="date-chip">July-August 2026</span>
           <h2>Cloudflare tunnels, routing, and VPN work</h2>
-          <p>Networking work that ties the portfolio, farm portal, stores, and internal services together through custom hostnames and controlled private access.</p>
+          <p>I connected my portfolio, farm portal, stores, and internal services with custom hostnames, container routes, tunnels, and controlled private access.</p>
           <ul class="clean-list">
             <li>Cloudflare Tunnel public hostnames for portfolio, farm, store, and project services.</li>
             <li>Docker network routing with Traefik/Nginx service maps and fixed origin paths.</li>
@@ -119,7 +119,7 @@
         <div class="detail-copy">
           <span class="date-chip">August 2026</span>
           <h2>Mochi's Steam Farm</h2>
-          <p>A branded customer portal and containerized service stack with public pages, account dashboards, service requests, farm worker controls, and a separated admin path.</p>
+          <p>I built a customer portal and containerized service stack with public pages, account dashboards, service requests, worker controls, and a separate admin area.</p>
           <ul class="clean-list">
             <li>Public route on the Sichi domain family.</li>
             <li>Homepage optimized from slow farm-engine calls to fast database-backed public metrics.</li>
@@ -140,10 +140,10 @@ docker stacks        -> managed services</pre>
         <div class="detail-copy">
           <span class="date-chip">July-August 2026</span>
           <h2>SoundSleep factory tools</h2>
-          <p>Operational web tooling for low-friction factory workflows: receipt capture, OCR review, inventory movement, and Discord alert presentation.</p>
+          <p>I built factory tools for receipt capture, OCR review, inventory updates, and Discord alerts, with a tablet layout that stays simple for operators.</p>
           <ul class="clean-list">
             <li>Receipt-to-inventory OCR flow with RapidOCR and Tesseract fallback.</li>
-            <li>Operator-friendly tablet UI designed for very low technology friction.</li>
+            <li>A tablet interface with large, direct controls for day-to-day factory use.</li>
             <li>Discord alert channel structure with bot-authored welcome and incident-friendly categories.</li>
           </ul>
         </div>
@@ -158,7 +158,7 @@ docker stacks        -> managed services</pre>
         <div class="detail-copy">
           <span class="date-chip">July-August 2026</span>
           <h2>VORIX Rusturned store</h2>
-          <p>Game-store and server-support work around packages, linked accounts, Steam delivery flows, Stripe checkout paths, and safer admin workflows.</p>
+          <p>I worked on the storefront, account linking, Steam delivery, Stripe checkout, and guarded admin controls for the Rusturned server.</p>
           <ul class="clean-list">
             <li>Rusturned storefront route verified live through the homelab tunnel.</li>
             <li>Account linking and delivery concepts connected to Discord/Steam workflows.</li>
@@ -177,7 +177,7 @@ docker stacks        -> managed services</pre>
         <div class="detail-copy">
           <span class="date-chip">June 2026</span>
           <h2>Plugins and server tooling</h2>
-          <p>Server-side work gets its own category now: plugin planning, game server utilities, Discord bot services, item catalogs, and automation around community servers.</p>
+          <p>I build server plugins, Discord services, item catalogs, and utilities that make game communities easier to run.</p>
           <ul class="clean-list">
             <li>RocketMod-focused Unturned plugin planning and server utility direction.</li>
             <li>Discord bot service work running from the homelab stack.</li>
@@ -195,7 +195,7 @@ docker stacks        -> managed services</pre>
         <div class="detail-copy">
           <span class="date-chip">June 2026</span>
           <h2>Discord Bot</h2>
-          <p>Community bot work for server automation, player support, and clean Discord embeds connected to the game server and homelab services.</p>
+          <p>I built this bot for server automation and player support, connecting Discord embeds to the game server, RCON, and my homelab services.</p>
           <ul class="clean-list">
             <li>Embed posts for server status, alerts, announcements, and command responses.</li>
             <li>RCON bridge for controlled game-server actions from Discord commands.</li>
@@ -215,6 +215,6 @@ docker stacks        -> managed services</pre>
       </section>
     </main>
 
-    <x-include src="/footer.html?v=20260802q"></x-include>
+    <x-include src="/footer.html?v=20260802s"></x-include>
   </body>
 </html>

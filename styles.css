@@ -164,7 +164,7 @@ main {
   grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.72fr);
   align-items: center;
   gap: clamp(24px, 4vw, 48px);
-  padding: clamp(70px, 10vh, 104px) 0 86px;
+  padding: clamp(44px, 7vh, 72px) 0 clamp(44px, 7vh, 68px);
 }
 
 .eyebrow {
@@ -186,8 +186,8 @@ p {
 h1 {
   max-width: 760px;
   margin-bottom: 18px;
-  font-size: clamp(3rem, 8vw, 6.8rem);
-  line-height: 0.9;
+  font-size: clamp(2.7rem, 7vw, 5.8rem);
+  line-height: 0.92;
 }
 
 .redacted-name {
@@ -200,13 +200,14 @@ h1 {
   font-family: Inter, ui-sans-serif, system-ui, sans-serif;
   letter-spacing: 0;
   filter: drop-shadow(0 0 22px rgba(57, 200, 214, 0.18));
+  overflow: visible;
 }
 
 .glitch-token {
   position: relative;
   display: block;
   overflow: hidden;
-  width: max-content;
+  width: min-content;
   max-width: 100%;
   padding: 0.02em 0.04em;
   color: #f7f8ff;
@@ -1112,7 +1113,7 @@ h3 {
     width: calc(100% - 20px);
     margin: 10px auto 0;
     transform: none;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) 42px;
   }
 
   .brand {
@@ -1127,18 +1128,22 @@ h3 {
   }
 
   .nav-toggle {
-    display: none;
+    display: block;
   }
 
   .nav-links {
-    display: grid;
-    grid-column: 1;
+    display: none;
+    grid-column: 1 / -1;
     grid-template-columns: 1fr;
     gap: 6px;
     width: 100%;
     overflow: hidden;
     padding-top: 8px;
     scrollbar-width: none;
+  }
+
+  .site-nav.is-open .nav-links {
+    display: grid;
   }
 
   .nav-links::-webkit-scrollbar {
@@ -1289,6 +1294,11 @@ body {
 .portfolio-card,
 .project-detail {
   overflow-wrap: anywhere;
+}
+
+.detail-copy,
+.terminal-card {
+  min-width: 0;
 }
 
 body::after {
@@ -1559,7 +1569,7 @@ body::before {
 }
 
 .projects-hero {
-  min-height: 78vh;
+  min-height: min(720px, 72vh);
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
   align-items: center;
@@ -1580,7 +1590,7 @@ body::before {
 
 .project-browser {
   display: grid;
-  grid-template-columns: minmax(230px, 0.32fr) minmax(0, 1fr);
+  grid-template-columns: minmax(220px, 0.28fr) minmax(0, 1fr);
   gap: 18px;
   align-items: start;
 }
@@ -1594,9 +1604,9 @@ body::before {
 
 .project-rail h2 {
   max-width: 100%;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.6rem, 2.6vw, 2.35rem);
   line-height: 1.04;
-  overflow-wrap: normal;
+  overflow-wrap: anywhere;
   word-break: normal;
   hyphens: none;
 }
@@ -1748,17 +1758,17 @@ body::before {
   display: grid;
   grid-template-columns: 1fr 0.7fr;
   gap: 10px;
-  max-height: 520px;
-  overflow: hidden;
+  max-height: none;
+  overflow: visible;
 }
 
 .screenshot-wall img {
   width: 100%;
-  height: 250px;
+  height: clamp(220px, 22vw, 320px);
   display: block;
   border: 1px solid var(--line);
   border-radius: 8px;
-  object-fit: cover;
+  object-fit: contain;
   object-position: top center;
   background: #080a0e;
 }
@@ -1766,7 +1776,7 @@ body::before {
 .screenshot-wall img:first-child {
   grid-row: span 2;
   height: 100%;
-  min-height: 510px;
+  min-height: clamp(450px, 45vw, 650px);
 }
 
 .screenshot-wall.compact-wall img:first-child {
@@ -1836,6 +1846,8 @@ body::before {
   overflow: auto;
   margin: 14px 0 0;
   font: 800 0.95rem/1.7 "Cascadia Code", Consolas, monospace;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
 .project-category-card,
@@ -1913,10 +1925,10 @@ body::before {
 
   .projects-main,
   main {
-    width: 300px !important;
-    max-width: calc(100vw - 48px) !important;
-    margin-left: 20px;
-    margin-right: 0;
+    width: min(100% - 28px, 1280px) !important;
+    max-width: calc(100vw - 28px) !important;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .projects-hero h1 {
@@ -1934,8 +1946,9 @@ body::before {
   }
 
   .console-screen strong {
-    white-space: nowrap;
+    white-space: normal;
     font-size: clamp(1.1rem, 5.3vw, 1.42rem);
+    overflow-wrap: anywhere;
   }
 
   .home-project-callout,
@@ -1958,9 +1971,9 @@ body::before {
   }
 
   .category-hero-panel h2 {
-    font-size: clamp(1.45rem, 7vw, 1.85rem);
+    font-size: clamp(1.35rem, 6.6vw, 1.8rem);
     line-height: 1.04;
-    overflow-wrap: normal;
+    overflow-wrap: anywhere;
     word-break: normal;
   }
 
@@ -1984,11 +1997,13 @@ body::before {
   .screenshot-wall img:first-child {
     grid-row: auto;
     min-height: 0;
-    height: 260px;
+    height: clamp(190px, 58vw, 260px);
+    max-height: none;
   }
 
   .screenshot-wall.compact-wall img {
-    height: 240px;
+    height: clamp(190px, 58vw, 250px);
+    max-height: none;
   }
 
   .screenshot-wall {
@@ -1996,7 +2011,8 @@ body::before {
   }
 
   .screenshot-wall img {
-    height: 260px;
+    height: clamp(190px, 58vw, 260px);
+    max-height: none;
   }
 
   .filter-pills {
@@ -2034,8 +2050,8 @@ body::before {
   }
 
   .project-rail h2 {
-    font-size: clamp(1.85rem, 9vw, 2.35rem);
-    overflow-wrap: normal !important;
+    font-size: clamp(1.55rem, 7vw, 2.05rem);
+    overflow-wrap: anywhere !important;
     word-break: normal !important;
   }
 

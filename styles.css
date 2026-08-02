@@ -159,12 +159,12 @@ main {
 }
 
 .hero-section {
-  min-height: calc(100vh - 112px);
+  min-height: auto;
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.72fr);
   align-items: center;
-  gap: 42px;
-  padding: 40px 0 72px;
+  gap: clamp(24px, 4vw, 48px);
+  padding: clamp(70px, 10vh, 104px) 0 86px;
 }
 
 .eyebrow {
@@ -186,17 +186,17 @@ p {
 h1 {
   max-width: 760px;
   margin-bottom: 18px;
-  font-size: clamp(3.2rem, 9vw, 7.6rem);
+  font-size: clamp(3rem, 8vw, 6.8rem);
   line-height: 0.9;
 }
 
 .redacted-name {
   display: inline-grid;
-  gap: 0.04em;
+  gap: 0.02em;
   width: fit-content;
   max-width: 100%;
   margin-bottom: 22px;
-  line-height: 1;
+  line-height: 0.96;
   font-family: Inter, ui-sans-serif, system-ui, sans-serif;
   letter-spacing: 0;
   filter: drop-shadow(0 0 22px rgba(57, 200, 214, 0.18));
@@ -208,14 +208,14 @@ h1 {
   overflow: hidden;
   width: max-content;
   max-width: 100%;
-  padding: 0 0.04em;
+  padding: 0 0.025em;
   color: #f7f8ff;
   text-transform: uppercase;
   text-shadow: 0 0 28px rgba(255, 255, 255, 0.2);
   isolation: isolate;
   background:
-    linear-gradient(0deg, transparent 0 39%, rgba(6, 10, 20, 0.78) 40% 52%, transparent 53%),
-    linear-gradient(90deg, transparent, rgba(57, 200, 214, 0.12), transparent);
+    linear-gradient(0deg, transparent 0 43%, rgba(6, 10, 20, 0.46) 44% 49%, transparent 50%),
+    linear-gradient(90deg, transparent, rgba(57, 200, 214, 0.08), transparent);
   animation: tokenDrift 3.2s ease-in-out infinite alternate;
 }
 
@@ -402,6 +402,7 @@ h3 {
 .hero-media {
   justify-self: center;
   width: min(100%, 390px);
+  min-width: 0;
   padding: 18px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -1103,6 +1104,45 @@ h3 {
   .site-nav {
     top: 10px;
     width: calc(100% - 20px);
+    grid-template-columns: 1fr;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .brand strong {
+    max-width: 190px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex;
+    grid-column: 1;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    overflow-x: auto;
+    padding-top: 8px;
+    scrollbar-width: none;
+  }
+
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-links a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 9px 10px;
+    font-size: 0.9rem;
   }
 
   h1 {
@@ -1117,7 +1157,7 @@ h3 {
   .hero-section {
     min-height: auto;
     gap: 22px;
-    padding: 12px 0 38px;
+    padding: 24px 0 38px;
   }
 
   .hero-copy {
@@ -1126,6 +1166,8 @@ h3 {
 
   .hero-lede {
     font-size: 1rem;
+    max-width: 100%;
+    overflow-wrap: anywhere;
   }
 
   .hero-actions,
@@ -1309,7 +1351,7 @@ body::before {
 
 .hero-console,
 .interactive-orbit {
-  min-height: 360px;
+  min-height: 320px;
   display: grid;
   align-content: center;
   gap: 18px;
@@ -1349,6 +1391,7 @@ body::before {
   border-radius: 8px;
   background: rgba(8, 11, 16, 0.78);
   box-shadow: inset 0 0 40px rgba(57, 200, 214, 0.08), var(--shadow);
+  min-width: 0;
 }
 
 .console-screen span,
@@ -1367,9 +1410,10 @@ body::before {
 .console-screen strong {
   display: block;
   margin: 10px 0;
-  font-size: clamp(1.65rem, 4vw, 2.9rem);
-  line-height: 1;
-  overflow-wrap: normal;
+  max-width: 100%;
+  font-size: clamp(1.45rem, 2.35vw, 2.15rem);
+  line-height: 1.04;
+  overflow-wrap: anywhere;
   word-break: normal;
 }
 
@@ -1828,7 +1872,15 @@ body::before {
   }
 
   .interactive-orbit {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 18px;
+  }
+
+  .interactive-orbit > button {
+    min-width: 0;
+    width: 100%;
+    padding-inline: 8px;
   }
 
   .projects-main,
@@ -1837,16 +1889,21 @@ body::before {
   }
 
   .projects-hero h1 {
-    font-size: clamp(2.25rem, 10vw, 3rem);
+    max-width: 100%;
+    font-size: clamp(1.9rem, 7.8vw, 2.35rem);
+    line-height: 1.05;
+    overflow-wrap: anywhere;
   }
 
   .projects-hero p:not(.eyebrow) {
+    max-width: 34ch;
     font-size: 1rem;
     overflow-wrap: anywhere;
   }
 
   .console-screen strong {
-    font-size: clamp(1.35rem, 7.2vw, 1.85rem);
+    white-space: nowrap;
+    font-size: clamp(1.1rem, 5.3vw, 1.42rem);
   }
 
   .home-project-callout,
@@ -1855,6 +1912,23 @@ body::before {
   .system-grid,
   .plugin-board {
     grid-template-columns: 1fr;
+    min-width: 0;
+  }
+
+  .projects-main h2,
+  .section-heading h2,
+  .project-detail h2 {
+    max-width: 100%;
+    font-size: clamp(1.85rem, 8vw, 2.45rem);
+    line-height: 1.05;
+    overflow-wrap: anywhere;
+  }
+
+  .project-detail p,
+  .portfolio-card p,
+  .console-screen p {
+    max-width: 100%;
+    overflow-wrap: anywhere;
   }
 
   .home-project-callout {

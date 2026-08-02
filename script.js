@@ -1,5 +1,5 @@
 const includePartials = async () => {
-  const includeVersion = "20260802b";
+  const includeVersion = "20260802c";
   const includeElements = Array.from(document.querySelectorAll("x-include"));
 
   await Promise.all(includeElements.map(async (element) => {
@@ -117,8 +117,8 @@ const setupLabConsole = () => {
 
 const setupRedactedName = () => {
   const variants = {
-    first: ["J?C#M", "J0X?M", "?O#HM", "J*C?N", "J?K_M", "X?C#M", "J4?M#", "?0C*M"],
-    last: ["E?A*O", "3D?G0", "E#X?O", "?D4*O", "E?Q#0", "X?A*O", "E7?G*", "?A#0D"]
+    first: ["J0?H*", "J?C4M", "JX?I#", "?OCH*", "J*C?N", "J4?M#", "J?XHM", "?0C*M"],
+    last: ["E?A6#", "3D?G0", "E#A?O", "?D4G*", "E?XG0", "X?A*O", "E7?G*", "?A#0D"]
   };
 
   document.querySelectorAll("[data-scramble]").forEach((token) => {

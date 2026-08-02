@@ -140,10 +140,32 @@ const setupRedactedName = () => {
   });
 };
 
+const setupViewportVideos = () => {
+  const videos = Array.from(document.querySelectorAll("video[data-autoplay-visible]"));
+  if (!videos.length) return;
+
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReducedMotion || !("IntersectionObserver" in window)) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const video = entry.target;
+      if (entry.isIntersecting) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }, { rootMargin: "240px 0px", threshold: 0.05 });
+
+  videos.forEach((video) => observer.observe(video));
+};
+
 document.addEventListener("DOMContentLoaded", async () => {
   await includePartials();
   setupNavigation();
   setupProjectBrowser();
   setupLabConsole();
   setupRedactedName();
+  setupViewportVideos();
 });

@@ -253,6 +253,19 @@ for (const width of [320, 390, 430, 768, 1440]) {
       result.checks.push({ name: 'projects filter responds', passed: false });
     }
 
+    await page.goto(`${baseUrl}/tebex/`, { waitUntil: 'domcontentloaded' });
+    await page.locator('video[data-autoplay-visible]').first().waitFor({ state: 'visible', timeout: 10_000 });
+    await page.waitForTimeout(500);
+    const videoState = await page.locator('video[data-autoplay-visible]').evaluateAll((videos) => ({
+      total: videos.length,
+      autoplayAttributes: videos.filter((video) => video.hasAttribute('autoplay')).length,
+      playing: videos.filter((video) => !video.paused).length,
+    }));
+    result.checks.push({
+      name: 'Tebex videos use viewport playback',
+      passed: videoState.total === 14 && videoState.autoplayAttributes === 0 && videoState.playing <= 4,
+    });
+
     await page.goto(`${baseUrl}/items/`, { waitUntil: 'domcontentloaded' });
     await page.waitForFunction(() => {
       const heading = document.querySelector('#heading');

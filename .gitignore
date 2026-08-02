@@ -3,3 +3,5 @@
 .agents/
 mobile-*.png
 tmp-mobile-check.js
+.codex/qa-artifacts/
+test-results/

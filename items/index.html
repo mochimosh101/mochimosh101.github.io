@@ -504,6 +504,7 @@
           <div class="field">
             <label for="pageSize">Cards per page</label>
             <select id="pageSize">
+              <option value="24">24</option>
               <option value="48">48</option>
               <option value="72" selected>72</option>
               <option value="120">120</option>
@@ -580,7 +581,8 @@
 
     const QUICK = ["attachments", "guns", "magazines", "shirts", "pants", "vests", "backpacks", "medical", "food", "building"];
     const $ = (id) => document.getElementById(id);
-    const state = { items: [], filtered: [], page: 1, pageSize: 72 };
+    const defaultPageSize = matchMedia('(max-width: 600px)').matches ? 24 : 72;
+    const state = { items: [], filtered: [], page: 1, pageSize: defaultPageSize };
 
     const qEl = $("q");
     const typeEl = $("typeFilter");
@@ -590,6 +592,7 @@
     const statusEl = $("status");
     const pagerEl = $("pager");
     const toastEl = $("toast");
+    pageSizeEl.value = String(defaultPageSize);
 
     function escapeHTML(value) {
       return String(value).replace(/[&<>"']/g, (char) => ({

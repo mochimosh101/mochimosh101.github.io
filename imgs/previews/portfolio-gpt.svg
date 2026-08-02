@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Portfolio GPT workflow preview</title>
+  <desc id="desc">A portfolio builder GPT concept with screenshot, writing, and image prompt lanes.</desc>
+  <rect width="1200" height="675" fill="#0b0d14"/>
+  <path d="M0 540C270 410 470 705 760 536s324-360 440-275v414H0z" fill="#12333b" opacity=".55"/>
+  <g transform="translate(84 86)">
+    <text fill="#39c8d6" font-family="Inter,Arial" font-size="28" font-weight="900" letter-spacing="4">DEDICATED GPT SPEC</text>
+    <text y="78" fill="#fff" font-family="Inter,Arial" font-size="72" font-weight="950">Mochi Portfolio Builder</text>
+  </g>
+  <g transform="translate(96 240)" fill="#121a27" stroke="#fff" stroke-opacity=".15">
+    <rect width="300" height="250" rx="18"/>
+    <rect x="354" width="300" height="250" rx="18"/>
+    <rect x="708" width="300" height="250" rx="18"/>
+  </g>
+  <g font-family="Inter,Arial">
+    <text x="138" y="318" fill="#fff" font-size="34" font-weight="900">Screenshots</text>
+    <text x="138" y="370" fill="#bbc3d4" font-size="24">Capture live proof, crop cleanly,</text>
+    <text x="138" y="404" fill="#bbc3d4" font-size="24">avoid personal details.</text>
+    <text x="492" y="318" fill="#fff" font-size="34" font-weight="900">Writing</text>
+    <text x="492" y="370" fill="#bbc3d4" font-size="24">Employer-readable summaries,</text>
+    <text x="492" y="404" fill="#bbc3d4" font-size="24">dates, stack, and outcome.</text>
+    <text x="846" y="318" fill="#fff" font-size="34" font-weight="900">Images</text>
+    <text x="846" y="370" fill="#bbc3d4" font-size="24">Generate polished previews when</text>
+    <text x="846" y="404" fill="#bbc3d4" font-size="24">screenshots are sensitive.</text>
+  </g>
+</svg>

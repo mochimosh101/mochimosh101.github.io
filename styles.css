@@ -721,6 +721,15 @@ h3 {
   border-radius: var(--radius);
 }
 
+.github-proof {
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.github-proof p {
+  margin-bottom: 0;
+}
+
 .page-hero {
   padding: 148px 0 34px;
   text-align: center;
@@ -953,6 +962,12 @@ h3 {
   width: 23px;
   height: 23px;
   filter: invert(1);
+}
+
+.footer-links span {
+  font-size: 0.92rem;
+  font-weight: 950;
+  letter-spacing: 0;
 }
 
 .footer-menu {
@@ -1354,6 +1369,8 @@ body::before {
   margin: 10px 0;
   font-size: clamp(1.65rem, 4vw, 2.9rem);
   line-height: 1;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .console-screen p {
@@ -1680,6 +1697,14 @@ body::before {
   min-height: 510px;
 }
 
+.screenshot-wall.compact-wall img:first-child {
+  min-height: 0;
+}
+
+.screenshot-wall.compact-wall img {
+  height: 250px;
+}
+
 .system-grid,
 .plugin-board,
 .bot-preview {
@@ -1821,7 +1846,7 @@ body::before {
   }
 
   .console-screen strong {
-    font-size: clamp(1.45rem, 9vw, 2.1rem);
+    font-size: clamp(1.35rem, 7.2vw, 1.85rem);
   }
 
   .home-project-callout,
@@ -1840,6 +1865,10 @@ body::before {
     grid-row: auto;
     min-height: 0;
     height: 260px;
+  }
+
+  .screenshot-wall.compact-wall img {
+    height: 240px;
   }
 
   .screenshot-wall {

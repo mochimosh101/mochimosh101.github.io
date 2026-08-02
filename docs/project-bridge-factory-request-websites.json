@@ -1,0 +1,11 @@
+{
+  "project_id": "AIBRIDGE",
+  "assigned_worker": "BRIDGE",
+  "task_type": "PROJECT_BRIDGE_FACTORY",
+  "parameters": {
+    "candidate_id": "websites",
+    "display_name": "Mochi Portfolio Builder",
+    "mode": "create",
+    "handoff": "Create a private project-scoped GPT package for maintaining the Mochi portfolio website. Scope is the Websites project and portfolio repository only. The GPT should help collect verified work, write employer-readable project cards, request or generate safe image prompts, capture public screenshots, avoid personal-name exposure, avoid secrets, avoid retired email-server content, keep mobile-first QA, and distinguish prepared package from live private GPT editor creation. Current portfolio inventory includes portfolio.sichi.me, Sichi Shop, Homelab Docker/Traefik/Cloudflare routing, Cloudflare tunnels and VPN planning, OpenAI/MCP/AI Bridge work, farm.sichi.me, Discord/RCON bot work, SoundSleep operations tools, Rusturned store, Moonlight item browser, Tebex stores, and cybersecurity learning."
+  }
+}

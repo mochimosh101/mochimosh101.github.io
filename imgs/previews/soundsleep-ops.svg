@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">SoundSleep factory operations preview</title>
+  <desc id="desc">A tablet-friendly operations dashboard with receipt OCR and Discord alerts.</desc>
+  <rect width="1200" height="675" fill="#10131b"/>
+  <circle cx="980" cy="120" r="280" fill="#39c8d6" opacity=".11"/>
+  <circle cx="110" cy="580" r="260" fill="#f24c4c" opacity=".12"/>
+  <text x="86" y="118" fill="#39c8d6" font-family="Inter,Arial" font-size="28" font-weight="900" letter-spacing="5">FACTORY OPS</text>
+  <text x="86" y="196" fill="#fff" font-family="Inter,Arial" font-size="72" font-weight="950">Receipt OCR and alerts.</text>
+  <g transform="translate(92 270)">
+    <rect width="310" height="250" rx="18" fill="#0b1018" stroke="#fff" stroke-opacity=".15"/>
+    <rect x="34" y="36" width="242" height="50" rx="10" fill="#1a2332"/>
+    <rect x="34" y="108" width="190" height="22" rx="6" fill="#39c8d6" opacity=".65"/>
+    <rect x="34" y="150" width="230" height="22" rx="6" fill="#fff" opacity=".24"/>
+    <rect x="34" y="192" width="150" height="22" rx="6" fill="#f24c4c" opacity=".72"/>
+    <text x="34" y="292" fill="#fff" font-family="Inter,Arial" font-size="28" font-weight="900">Receipt review</text>
+  </g>
+  <g transform="translate(454 270)">
+    <rect width="310" height="250" rx="18" fill="#0b1018" stroke="#fff" stroke-opacity=".15"/>
+    <rect x="34" y="36" width="242" height="66" rx="12" fill="#141d2a" stroke="#39c8d6" stroke-opacity=".35"/>
+    <rect x="34" y="126" width="242" height="66" rx="12" fill="#141d2a" stroke="#fff" stroke-opacity=".12"/>
+    <text x="34" y="292" fill="#fff" font-family="Inter,Arial" font-size="28" font-weight="900">Tablet workflow</text>
+  </g>
+  <g transform="translate(816 270)">
+    <rect width="310" height="250" rx="18" fill="#0b1018" stroke="#5865f2" stroke-opacity=".45"/>
+    <rect x="34" y="42" width="5" height="150" rx="3" fill="#5865f2"/>
+    <text x="58" y="82" fill="#fff" font-family="Inter,Arial" font-size="28" font-weight="900">Discord alert</text>
+    <text x="58" y="126" fill="#bbc3d4" font-family="Inter,Arial" font-size="22">urgent-alerts</text>
+    <text x="58" y="160" fill="#bbc3d4" font-family="Inter,Arial" font-size="22">maintenance-feed</text>
+    <text x="34" y="292" fill="#fff" font-family="Inter,Arial" font-size="28" font-weight="900">Bot messages</text>
+  </g>
+</svg>

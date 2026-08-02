@@ -6,16 +6,11 @@
   <meta name="description" content="Portfolio of Name Redacted, covering websites, game stores, homelab hosting, plugins, security learning, and server tools.">
   <title>Name Redacted | Full Stack Developer</title>
   <link rel="icon" type="image/svg+xml" href="/imgs/mochi-mark.svg">
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="preconnect" href="https://unpkg.com">
-  <link rel="stylesheet" href="/styles.css?v=20260714d">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script src="/script.js?v=20260714d" defer></script>
+  <link rel="stylesheet" href="/styles.css?v=20260802b">
+  <script src="/script.js?v=20260802b" defer></script>
 </head>
 <body>
-  <x-include src="/top-nav.html?v=20260714d"></x-include>
+  <x-include src="/top-nav.html?v=20260802b"></x-include>
 
   <main>
     <section class="hero-section">
@@ -40,7 +35,7 @@
         <div class="console-buttons">
           <button type="button" data-console-choice="web">Web</button>
           <button type="button" data-console-choice="docker">Docker</button>
-          <button type="button" data-console-choice="mail">Email</button>
+          <button type="button" data-console-choice="network">Network</button>
           <button type="button" data-console-choice="plugins">Plugins</button>
         </div>
       </div>
@@ -52,7 +47,7 @@
         <span>Portfolio hosted on Mochi</span>
       </div>
       <div>
-        <strong>8</strong>
+        <strong>14</strong>
         <span>Project categories</span>
       </div>
       <div>
@@ -63,9 +58,9 @@
 
     <section class="section-block quick-nav-section">
       <a href="/project/project.html#sichi-shop"><span>June 2026</span><strong>Sichi Shop</strong><small>Storefront and checkout screenshots</small></a>
-      <a href="/project/project.html#homelab-details"><span>June 2026</span><strong>Homelab</strong><small>Docker, routing, domain mail</small></a>
-      <a href="/project/project.html#plugins"><span>June 2026</span><strong>Plugins</strong><small>Server utilities and game tools</small></a>
-      <a href="/project/tebex.html"><span>Feb-May 2023</span><strong>Tebex</strong><small>Game store builds</small></a>
+      <a href="/project/project.html#ai-bridge"><span>July 2026</span><strong>OpenAI + MCP</strong><small>Bridge, GPT tooling, action schemas</small></a>
+      <a href="/project/project.html#networking"><span>July 2026</span><strong>Tunnels + VPN</strong><small>Cloudflare routes and private access</small></a>
+      <a href="/project/project.html#steam-farm"><span>August 2026</span><strong>Steam Farm</strong><small>Portal optimization and worker controls</small></a>
     </section>
 
     <section class="section-block snapshot-section">
@@ -101,7 +96,7 @@
           <div>
             <p class="project-date">June 2026</p>
             <h3>Self-hosting and infrastructure notes</h3>
-            <p>TrueNAS, NAS experiments, domain mail, Docker, Portainer, and self-hosting work collected in one place.</p>
+            <p>Docker, Traefik, Cloudflare Tunnel, Portainer, server routing, and self-hosting work collected in one place.</p>
           </div>
         </a>
 
@@ -183,14 +178,14 @@
         </article>
 
         <article class="category-card">
-          <img src="/imgs/previews/domain-mail.svg" alt="Domain mail and DNS preview" loading="lazy">
+          <img src="/imgs/previews/networking.svg" alt="Domains and routing preview" loading="lazy">
           <div>
             <p class="project-date">Web presence</p>
-            <h3>Domains, email, and blogging</h3>
-            <p>Posts from Mochisquare covering domain setup, custom email, blogging, and independent web presence.</p>
+            <h3>Domains, routing, and blogging</h3>
+            <p>Posts from Mochisquare covering domain setup, custom subdomains, blogging, and independent web presence.</p>
             <ul>
               <li>Got another domain</li>
-              <li>Making custom domain mail</li>
+              <li>Cloudflare routing and custom subdomains</li>
               <li>Blog and self-taught learning posts</li>
             </ul>
           </div>
@@ -299,15 +294,16 @@
     <section class="section-block github-panel">
       <div>
         <p class="eyebrow">GitHub</p>
-        <h2>Open source activity</h2>
+        <h2>Project code and tooling</h2>
       </div>
-      <a href="https://git.io/streak-stats" target="_blank" rel="noreferrer">
-        <img src="https://streak-stats.demolab.com/?user=mochimosh101&theme=highcontrast" alt="GitHub contribution streak for mochimosh101" loading="lazy">
-      </a>
+      <div class="github-proof">
+        <p>Portfolio updates, item browser tooling, server-side helpers, and website experiments are kept as practical project work instead of a fragile third-party stats widget.</p>
+        <a class="detail-link" href="https://github.com/mochimosh101" target="_blank" rel="noreferrer">Open GitHub</a>
+      </div>
     </section>
   </main>
 
-  <x-include src="/footer.html?v=20260714d"></x-include>
+  <x-include src="/footer.html?v=20260802b"></x-include>
 </body>
 </html>
 

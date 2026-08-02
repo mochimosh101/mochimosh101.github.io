@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Projects | Name Redacted</title>
     <meta name="description" content="Browse Name Redacted's websites, stores, homelab systems, plugins, security work, and game tools.">
-    <link rel="stylesheet" href="/styles.css?v=20260714d">
+    <link rel="stylesheet" href="/styles.css?v=20260802b">
     <link rel="icon" type="image/svg+xml" href="/imgs/mochi-mark.svg">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="/script.js?v=20260714d" defer></script>
+    <script src="/script.js?v=20260802b" defer></script>
   </head>
   <body>
-    <x-include src="/top-nav.html?v=20260714d"></x-include>
+    <x-include src="/top-nav.html?v=20260802b"></x-include>
 
     <main class="projects-main">
       <section class="projects-hero">
@@ -29,7 +26,7 @@
         <div class="interactive-orbit" aria-label="Interactive portfolio stack" data-lab-console>
           <button type="button" data-console-choice="web">Web</button>
           <button type="button" data-console-choice="docker">Docker</button>
-          <button type="button" data-console-choice="mail">Email</button>
+          <button type="button" data-console-choice="network">Network</button>
           <button type="button" data-console-choice="plugins">Plugins</button>
           <div class="console-screen">
             <span data-console-title>Web stack</span>
@@ -40,7 +37,7 @@
       </section>
 
       <section id="all-projects" class="section-block">
-        <x-include src="/project-card.html?v=20260714d"></x-include>
+        <x-include src="/project-card.html?v=20260802b"></x-include>
       </section>
 
       <section id="sichi-shop" class="section-block project-detail">
@@ -64,32 +61,71 @@
       <section id="homelab-details" class="section-block project-detail reverse">
         <div class="detail-copy">
           <span class="date-chip">June 2026</span>
-          <h2>Homelab, Docker, email, and routing</h2>
+          <h2>Homelab, Docker, tunnels, and routing</h2>
           <p>The portfolio is now part of the same homelab story: a live Nginx container, Cloudflare Tunnel public route, custom `portfolio.sichi.me` hostname, and server-side routing through the existing stack.</p>
           <ul class="clean-list">
-            <li>Docker stacks for portfolio hosting, Steam Farm, mail services, and server utilities.</li>
+            <li>Docker stacks for portfolio hosting, Steam Farm, bot services, and server utilities.</li>
             <li>Cloudflare Tunnel routes for public apps without exposing random ports.</li>
-            <li>Domain mail and DNS learning grouped into the Homelab category.</li>
+            <li>Traefik, Nginx, Cloudflare, and private network routing grouped into the Homelab category.</li>
           </ul>
         </div>
         <div class="system-grid">
           <article><span>Docker</span><strong>mochi-portfolio</strong><p>Nginx static hosting for this portfolio.</p></article>
           <article><span>Routing</span><strong>Cloudflare Tunnel</strong><p>Public hostnames routed into the home server stack.</p></article>
-          <article><span>Email</span><strong>Domain mail</strong><p>Mail server and custom domain email notes.</p></article>
+          <article><span>Network</span><strong>VPN and tunnels</strong><p>Private access and public routes without random exposed ports.</p></article>
           <article><span>Admin</span><strong>Traefik / Nginx</strong><p>Internal routing layer for multiple services.</p></article>
+        </div>
+      </section>
+
+      <section id="ai-bridge" class="section-block project-detail">
+        <div class="detail-copy">
+          <span class="date-chip">July 2026</span>
+          <h2>OpenAI, MCP, and AI Bridge tooling</h2>
+          <p>Private GPT and local tooling work for project-aware automation: action schemas, profile boundaries, MCP-style connectors, protected server access, and repeatable verification.</p>
+          <ul class="clean-list">
+            <li>AI Bridge release v2.3.1 with profile separation, health checks, and rollback paths.</li>
+            <li>OpenAI/Codex workflow work covering dedicated project GPTs, tool schemas, and safe action boundaries.</li>
+            <li>Server-side MCP-style integration patterns for websites, hosting, and project automation.</li>
+          </ul>
+          <a class="detail-link" href="https://platform.openai.com/" target="_blank" rel="noreferrer">OpenAI platform</a>
+        </div>
+        <div class="screenshot-wall compact-wall">
+          <img src="/imgs/previews/ai-bridge.svg" alt="AI Bridge and OpenAI workflow preview" loading="lazy">
+          <img src="/imgs/previews/mcp-tools.svg" alt="MCP tool schema preview" loading="lazy">
+          <img src="/imgs/previews/portfolio-gpt.svg" alt="Portfolio GPT workflow preview" loading="lazy">
+        </div>
+      </section>
+
+      <section id="networking" class="section-block project-detail reverse">
+        <div class="detail-copy">
+          <span class="date-chip">July-August 2026</span>
+          <h2>Cloudflare tunnels, routing, and VPN work</h2>
+          <p>Networking work that ties the portfolio, farm portal, stores, and internal services together through custom hostnames and controlled private access.</p>
+          <ul class="clean-list">
+            <li>Cloudflare Tunnel public hostnames for portfolio, farm, store, and project services.</li>
+            <li>Docker network routing with Traefik/Nginx service maps and fixed origin paths.</li>
+            <li>VPN/private access planning for admin-only tooling and safer homelab operations.</li>
+          </ul>
+        </div>
+        <div class="system-grid">
+          <article><span>Public</span><strong>portfolio.sichi.me</strong><p>Portfolio hosted through the homelab route.</p></article>
+          <article><span>Portal</span><strong>farm.sichi.me</strong><p>Steam Farm customer dashboard and account flows.</p></article>
+          <article><span>Store</span><strong>rusturned.sichi.me</strong><p>Game store route verified live.</p></article>
+          <article><span>Private</span><strong>VPN path</strong><p>Admin access designed for controlled internal work.</p></article>
         </div>
       </section>
 
       <section id="steam-farm" class="section-block project-detail">
         <div class="detail-copy">
-          <span class="date-chip">June 2026</span>
+          <span class="date-chip">August 2026</span>
           <h2>Mochi's Steam Farm</h2>
-          <p>A branded customer portal and containerized service stack with public pages, account dashboards, service requests, and a separated admin path.</p>
+          <p>A branded customer portal and containerized service stack with public pages, account dashboards, service requests, farm worker controls, and a separated admin path.</p>
           <ul class="clean-list">
             <li>Public route on the Sichi domain family.</li>
-            <li>Customer-facing pages separate from admin management.</li>
-            <li>Container services connected through the homelab proxy network.</li>
+            <li>Homepage optimized from slow farm-engine calls to fast database-backed public metrics.</li>
+            <li>Container services connected through fixed homelab proxy and farm-engine routes.</li>
           </ul>
+          <a class="detail-link" href="https://farm.sichi.me/" target="_blank" rel="noreferrer">Visit farm portal</a>
         </div>
         <div class="terminal-card">
           <span>service map</span>
@@ -97,6 +133,43 @@
 portfolio.sichi.me   -> portfolio
 mochi-proxy network  -> shared routing
 docker stacks        -> managed services</pre>
+        </div>
+      </section>
+
+      <section id="soundsleep" class="section-block project-detail reverse">
+        <div class="detail-copy">
+          <span class="date-chip">July-August 2026</span>
+          <h2>SoundSleep factory tools</h2>
+          <p>Operational web tooling for low-friction factory workflows: receipt capture, OCR review, inventory movement, and Discord alert presentation.</p>
+          <ul class="clean-list">
+            <li>Receipt-to-inventory OCR flow with RapidOCR and Tesseract fallback.</li>
+            <li>Operator-friendly tablet UI designed for very low technology friction.</li>
+            <li>Discord alert channel structure with bot-authored welcome and incident-friendly categories.</li>
+          </ul>
+        </div>
+        <div class="screenshot-wall compact-wall">
+          <img src="/imgs/previews/soundsleep-ops.svg" alt="SoundSleep factory operations preview" loading="lazy">
+          <img src="/imgs/screenshots/discord-bot.svg" alt="Discord alert preview" loading="lazy">
+          <img src="/imgs/previews/project-browser.svg" alt="Operational dashboard preview" loading="lazy">
+        </div>
+      </section>
+
+      <section id="rusturned-store" class="section-block project-detail">
+        <div class="detail-copy">
+          <span class="date-chip">July-August 2026</span>
+          <h2>VORIX Rusturned store</h2>
+          <p>Game-store and server-support work around packages, linked accounts, Steam delivery flows, Stripe checkout paths, and safer admin workflows.</p>
+          <ul class="clean-list">
+            <li>Rusturned storefront route verified live through the homelab tunnel.</li>
+            <li>Account linking and delivery concepts connected to Discord/Steam workflows.</li>
+            <li>Security-minded admin paths, rollback checks, and deployment proof loops.</li>
+          </ul>
+          <a class="detail-link" href="https://rusturned.sichi.me/" target="_blank" rel="noreferrer">Visit Rusturned store</a>
+        </div>
+        <div class="screenshot-wall compact-wall">
+          <img src="/imgs/screenshots/rusturned-store.png" alt="Rusturned store screenshot" loading="lazy">
+          <img src="/imgs/previews/networking.svg" alt="Network routing preview" loading="lazy">
+          <img src="/imgs/previews/homelab-infra.svg" alt="Homelab infrastructure preview" loading="lazy">
         </div>
       </section>
 
@@ -142,7 +215,7 @@ docker stacks        -> managed services</pre>
       </section>
     </main>
 
-    <x-include src="/footer.html?v=20260714d"></x-include>
+    <x-include src="/footer.html?v=20260802b"></x-include>
   </body>
 </html>
 

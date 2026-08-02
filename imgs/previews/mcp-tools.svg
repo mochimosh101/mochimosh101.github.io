@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">MCP tool schema preview</title>
+  <desc id="desc">A stylized schema board showing tools, servers, routes, and logs.</desc>
+  <rect width="1200" height="675" fill="#091019"/>
+  <circle cx="1040" cy="104" r="260" fill="#39c8d6" opacity=".13"/>
+  <circle cx="140" cy="620" r="300" fill="#f24c4c" opacity=".14"/>
+  <g transform="translate(88 78)">
+    <text fill="#39c8d6" font-family="Inter,Arial" font-size="30" font-weight="900" letter-spacing="5">MCP STYLE TOOLING</text>
+    <text y="82" fill="#fff" font-family="Inter,Arial" font-size="72" font-weight="950">Schemas that can act.</text>
+  </g>
+  <g transform="translate(92 230)" font-family="Consolas,monospace" font-size="26">
+    <rect width="470" height="310" rx="18" fill="#0d1420" stroke="#fff" stroke-opacity=".16"/>
+    <text x="34" y="58" fill="#8b5cf6">{</text>
+    <text x="64" y="104" fill="#fff">"tool": "deploy_site",</text>
+    <text x="64" y="150" fill="#fff">"scope": "portfolio",</text>
+    <text x="64" y="196" fill="#fff">"verify": ["200", "mobile"],</text>
+    <text x="64" y="242" fill="#fff">"rollback": true</text>
+    <text x="34" y="288" fill="#8b5cf6">}</text>
+  </g>
+  <g transform="translate(652 220)">
+    <rect width="206" height="72" rx="14" fill="#162033" stroke="#39c8d6" stroke-opacity=".55"/>
+    <rect x="248" y="0" width="206" height="72" rx="14" fill="#162033" stroke="#f24c4c" stroke-opacity=".55"/>
+    <rect y="114" width="454" height="72" rx="14" fill="#162033" stroke="#fff" stroke-opacity=".18"/>
+    <rect y="228" width="454" height="72" rx="14" fill="#162033" stroke="#fff" stroke-opacity=".18"/>
+    <text x="28" y="46" fill="#fff" font-family="Inter,Arial" font-size="26" font-weight="900">Servers</text>
+    <text x="282" y="46" fill="#fff" font-family="Inter,Arial" font-size="26" font-weight="900">Actions</text>
+    <text x="28" y="160" fill="#fff" font-family="Inter,Arial" font-size="26" font-weight="900">Evidence and screenshots</text>
+    <text x="28" y="274" fill="#fff" font-family="Inter,Arial" font-size="26" font-weight="900">Exact read-back verification</text>
+  </g>
+</svg>

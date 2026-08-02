@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Cloudflare tunnels and VPN preview</title>
+  <desc id="desc">A network map with public domains, tunnels, VPN, and Docker services.</desc>
+  <rect width="1200" height="675" fill="#091117"/>
+  <g stroke="#fff" stroke-opacity=".08">
+    <path d="M0 80h1200M0 160h1200M0 240h1200M0 320h1200M0 400h1200M0 480h1200M0 560h1200"/>
+    <path d="M80 0v675M160 0v675M240 0v675M320 0v675M400 0v675M480 0v675M560 0v675M640 0v675M720 0v675M800 0v675M880 0v675M960 0v675M1040 0v675M1120 0v675"/>
+  </g>
+  <text x="86" y="120" fill="#39c8d6" font-family="Inter,Arial" font-size="28" font-weight="900" letter-spacing="5">ROUTING MAP</text>
+  <text x="86" y="198" fill="#fff" font-family="Inter,Arial" font-size="70" font-weight="950">Tunnels, VPN, and services.</text>
+  <g fill="none" stroke-width="7">
+    <path d="M230 392C370 284 486 284 622 392s260 110 386-16" stroke="#39c8d6"/>
+    <path d="M230 482C390 566 520 566 662 460s218-128 346-42" stroke="#f24c4c"/>
+  </g>
+  <g font-family="Inter,Arial" font-weight="900">
+    <g transform="translate(110 340)">
+      <rect width="230" height="98" rx="16" fill="#121a27" stroke="#39c8d6" stroke-opacity=".5"/>
+      <text x="28" y="58" fill="#fff" font-size="25">Cloudflare</text>
+    </g>
+    <g transform="translate(472 286)">
+      <rect width="250" height="98" rx="16" fill="#121a27" stroke="#fff" stroke-opacity=".18"/>
+      <text x="28" y="58" fill="#fff" font-size="25">Traefik</text>
+    </g>
+    <g transform="translate(846 348)">
+      <rect width="250" height="98" rx="16" fill="#121a27" stroke="#fff" stroke-opacity=".18"/>
+      <text x="28" y="58" fill="#fff" font-size="25">Docker apps</text>
+    </g>
+    <g transform="translate(476 486)">
+      <rect width="250" height="98" rx="16" fill="#121a27" stroke="#f24c4c" stroke-opacity=".55"/>
+      <text x="28" y="58" fill="#fff" font-size="25">VPN access</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">AI Bridge and OpenAI workflow preview</title>
+  <desc id="desc">A dark interface showing project profiles, action schemas, and verified routes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#10141f"/>
+      <stop offset=".55" stop-color="#161c2a"/>
+      <stop offset="1" stop-color="#08242a"/>
+    </linearGradient>
+    <linearGradient id="hot" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f24c4c"/>
+      <stop offset=".55" stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#39c8d6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <path d="M0 0h1200v675H0z" fill="none" stroke="#ffffff" stroke-opacity=".08"/>
+  <g opacity=".18" stroke="#fff">
+    <path d="M0 110h1200M0 220h1200M0 330h1200M0 440h1200M0 550h1200"/>
+    <path d="M120 0v675M240 0v675M360 0v675M480 0v675M600 0v675M720 0v675M840 0v675M960 0v675M1080 0v675"/>
+  </g>
+  <rect x="86" y="88" width="360" height="498" rx="18" fill="#0b0f17" stroke="#39c8d6" stroke-opacity=".45"/>
+  <text x="124" y="154" fill="#39c8d6" font-family="Inter,Arial" font-size="28" font-weight="800" letter-spacing="4">PROJECT GPT</text>
+  <text x="124" y="214" fill="#fff" font-family="Inter,Arial" font-size="54" font-weight="900">AI Bridge</text>
+  <text x="124" y="266" fill="#bbc3d4" font-family="Inter,Arial" font-size="27">profiles, action schemas,</text>
+  <text x="124" y="304" fill="#bbc3d4" font-family="Inter,Arial" font-size="27">safe server workflows</text>
+  <g transform="translate(124 360)">
+    <rect width="256" height="48" rx="10" fill="#171e2c" stroke="#fff" stroke-opacity=".16"/>
+    <text x="22" y="31" fill="#fff" font-family="Consolas,monospace" font-size="20">health: 200 OK</text>
+    <rect y="66" width="256" height="48" rx="10" fill="#171e2c" stroke="#fff" stroke-opacity=".16"/>
+    <text x="22" y="97" fill="#fff" font-family="Consolas,monospace" font-size="20">cross-profile: 401</text>
+  </g>
+  <g fill="none" stroke="url(#hot)" stroke-width="6">
+    <path d="M460 338c126-140 250-140 374 0"/>
+    <path d="M460 388c126 140 250 140 374 0"/>
+  </g>
+  <g transform="translate(830 110)">
+    <rect width="286" height="455" rx="18" fill="#0b0f17" stroke="#fff" stroke-opacity=".16"/>
+    <text x="34" y="74" fill="#39c8d6" font-family="Inter,Arial" font-size="24" font-weight="900" letter-spacing="3">TOOL ROUTER</text>
+    <text x="34" y="132" fill="#fff" font-family="Inter,Arial" font-size="42" font-weight="900">OpenAI</text>
+    <g fill="#171e2c" stroke="#fff" stroke-opacity=".18">
+      <rect x="34" y="182" width="218" height="54" rx="10"/>
+      <rect x="34" y="254" width="218" height="54" rx="10"/>
+      <rect x="34" y="326" width="218" height="54" rx="10"/>
+    </g>
+    <text x="56" y="217" fill="#fff" font-family="Inter,Arial" font-size="21" font-weight="800">MCP tools</text>
+    <text x="56" y="289" fill="#fff" font-family="Inter,Arial" font-size="21" font-weight="800">Codex tasks</text>
+    <text x="56" y="361" fill="#fff" font-family="Inter,Arial" font-size="21" font-weight="800">Verified output</text>
+  </g>
+</svg>

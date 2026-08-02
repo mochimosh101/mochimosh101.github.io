@@ -1,5 +1,5 @@
 const includePartials = async () => {
-  const includeVersion = "20260714d";
+  const includeVersion = "20260802b";
   const includeElements = Array.from(document.querySelectorAll("x-include"));
 
   await Promise.all(includeElements.map(async (element) => {
@@ -9,7 +9,7 @@ const includePartials = async () => {
     try {
       const url = new URL(src, window.location.origin);
       if (!url.searchParams.has("v")) url.searchParams.set("v", includeVersion);
-      const response = await fetch(url, { cache: "no-store" });
+      const response = await fetch(url);
       if (!response.ok) throw new Error(`Unable to load ${src}`);
 
       const wrapper = document.createElement("div");
@@ -95,8 +95,8 @@ const setupLabConsole = () => {
   const data = {
     web: ["Web stack", "portfolio.sichi.me", "Hosted portfolio, Sichi Shop screenshots, category pages, and project navigation."],
     docker: ["Docker stack", "mochi-portfolio", "Nginx container, proxy network, and self-hosted services grouped in the homelab."],
-    mail: ["Email stack", "domain mail", "Custom domain mail, DNS records, and server notes documented in the homelab category."],
-    plugins: ["Plugin work", "server tools", "Game server utilities, Discord bot services, and searchable item browser tooling."]
+    network: ["Network stack", "tunnels + VPN", "Cloudflare Tunnel, private access planning, Traefik routes, and custom subdomains."],
+    plugins: ["Plugin work", "server tools", "Game server utilities, Discord bot services, RCON, and searchable item browser tooling."]
   };
 
   document.querySelectorAll("[data-lab-console]").forEach((consoleEl) => {

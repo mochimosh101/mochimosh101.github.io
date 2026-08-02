@@ -54,6 +54,7 @@ async function collectMetrics(page) {
     const root = document.documentElement;
     const clipped = [];
     const offscreen = [];
+    const galleryImageIssues = [];
     const nodes = Array.from(document.querySelectorAll('body *')).slice(0, 8000);
 
     for (const element of nodes) {
@@ -95,6 +96,28 @@ async function collectMetrics(page) {
       if (clipped.length >= 50 && offscreen.length >= 50) break;
     }
 
+    for (const image of document.querySelectorAll('.screenshot-wall img')) {
+      const rect = image.getBoundingClientRect();
+      if (rect.width < 1 || rect.height < 1 || image.naturalWidth < 1 || image.naturalHeight < 1) continue;
+      const style = getComputedStyle(image);
+      const naturalRatio = image.naturalWidth / image.naturalHeight;
+      const renderedRatio = rect.width / rect.height;
+      const ratioDifference = Math.abs(renderedRatio - naturalRatio) / naturalRatio;
+      if (ratioDifference > 0.025 || style.objectFit === 'cover' || rect.right > window.innerWidth + 2 || rect.left < -2) {
+        galleryImageIssues.push({
+          src: image.currentSrc || image.src,
+          natural: `${image.naturalWidth}x${image.naturalHeight}`,
+          rendered: `${Math.round(rect.width)}x${Math.round(rect.height)}`,
+          naturalRatio: Number(naturalRatio.toFixed(3)),
+          renderedRatio: Number(renderedRatio.toFixed(3)),
+          ratioDifference: Number(ratioDifference.toFixed(3)),
+          objectFit: style.objectFit,
+          left: Math.round(rect.left),
+          right: Math.round(rect.right),
+        });
+      }
+    }
+
     return {
       title: document.title,
       url: location.href,
@@ -111,6 +134,7 @@ async function collectMetrics(page) {
         .map((image) => ({ src: image.currentSrc || image.src, alt: image.alt })),
       clipped: clipped.slice(0, 50),
       offscreen: offscreen.slice(0, 50),
+      galleryImageIssues: galleryImageIssues.slice(0, 50),
       headings: Array.from(document.querySelectorAll('h1, h2, h3')).slice(0, 120).map((heading) => {
         const rect = heading.getBoundingClientRect();
         return {
@@ -174,10 +198,15 @@ for (const [width, height] of viewports) {
         return rect.width < 1 || (image.complete && image.naturalWidth > 0);
       }), null, { timeout: 10_000 }).catch(() => {});
       const metrics = await collectMetrics(page);
+      const materialFailedRequests = failedRequests.filter((failure) => !(
+        failure.error === 'net::ERR_ABORTED' && /\.mp4(?:$|\?)/i.test(failure.url)
+      ));
       expect(response?.status(), `${route} should return HTTP 200`).toBe(200);
       expect(metrics.document.overflow, `${route} should not overflow horizontally at ${width}px`).toBeLessThanOrEqual(2);
       expect(metrics.brokenImages, `${route} should not show broken images at ${width}px`).toEqual([]);
+      expect(metrics.galleryImageIssues, `${route} should not crop, stretch, or push gallery images off-screen at ${width}px`).toEqual([]);
       expect(pageErrors, `${route} should not raise page errors at ${width}px`).toEqual([]);
+      expect(materialFailedRequests, `${route} should not fail non-media requests at ${width}px`).toEqual([]);
       expect(badResponses, `${route} should not return bad resources at ${width}px`).toEqual([]);
       await page.evaluate(() => window.scrollTo(0, 0));
       await page.waitForTimeout(100);
@@ -194,10 +223,11 @@ for (const [width, height] of viewports) {
         status: response?.status() || null,
         screenshot,
         metrics,
-        consoleMessages,
-        pageErrors,
-        failedRequests,
-        badResponses,
+        consoleMessages: [...consoleMessages],
+        pageErrors: [...pageErrors],
+        failedRequests: [...failedRequests],
+        materialFailedRequests: [...materialFailedRequests],
+        badResponses: [...badResponses],
       });
       await context.close();
     });
@@ -231,6 +261,15 @@ for (const width of [320, 390, 430, 768, 1440]) {
     result.checks.push({
       name: 'home console switches to Docker',
       passed: (await page.locator('[data-console-value]').textContent()) === 'mochi-portfolio',
+    });
+    const homeVideoState = await page.locator('video[data-autoplay-visible]').evaluateAll((videos) => ({
+      total: videos.length,
+      autoplayAttributes: videos.filter((video) => video.hasAttribute('autoplay')).length,
+      playing: videos.filter((video) => !video.paused).length,
+    }));
+    result.checks.push({
+      name: 'home videos use viewport playback',
+      passed: homeVideoState.total === 5 && homeVideoState.autoplayAttributes === 0 && homeVideoState.playing <= 2,
     });
 
     await page.goto(`${baseUrl}/projects/`, { waitUntil: 'domcontentloaded' });

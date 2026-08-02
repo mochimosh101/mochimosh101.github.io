@@ -1774,36 +1774,45 @@ img.homelab-capture {
 
 .screenshot-wall {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(180px, 0.65fr);
-  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
   max-height: none;
+  min-width: 0;
   overflow: visible;
   align-items: start;
+}
+
+.screenshot-wall > .screenshot-link {
+  display: block;
+  min-width: 0;
+  align-self: start;
+  border-radius: 8px;
+  cursor: zoom-in;
+}
+
+.screenshot-wall > .screenshot-link:first-child {
+  grid-column: 1 / -1;
 }
 
 .screenshot-wall img {
   width: 100%;
   height: auto;
+  min-width: 0;
   display: block;
+  align-self: start;
   border: 1px solid var(--line);
   border-radius: 8px;
-  object-fit: cover;
+  object-fit: contain;
   object-position: top center;
   background: #0d121a;
-}
-
-.screenshot-wall img:first-child {
-  grid-row: span 2;
-  height: auto;
-  min-height: 0;
 }
 
 .screenshot-wall.two-up {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.screenshot-wall.two-up img:first-child {
-  grid-row: auto;
+.screenshot-wall.two-up > .screenshot-link:first-child {
+  grid-column: auto;
 }
 
 .screenshot-wall.compact-wall img:first-child {
@@ -1821,8 +1830,8 @@ img.homelab-capture {
 }
 
 .screenshot-wall img.homelab-capture {
-  aspect-ratio: 2.145 / 1;
-  object-fit: cover;
+  aspect-ratio: auto;
+  object-fit: contain;
   object-position: top left;
 }
 
@@ -2040,11 +2049,8 @@ img.homelab-capture {
     display: grid;
   }
 
-  .screenshot-wall img:first-child {
-    grid-row: auto;
-    min-height: 0;
-    height: auto;
-    max-height: none;
+  .screenshot-wall > .screenshot-link:first-child {
+    grid-column: auto;
   }
 
   .screenshot-wall.compact-wall img {

@@ -15,7 +15,20 @@ Create polished, employer-readable portfolio updates for Mochi's work across web
 - Every project card needs a month/year stamp, a category, what was built, why it matters, and a link when a public link is safe.
 - Avoid obsolete services. Do not add retired email-server content.
 - Keep wording professional, practical, and easy for an employer to scan.
-- Mobile layout matters as much as desktop. Check 390px wide and desktop before publishing.
+- Write in Mochi's voice: use direct first-person wording about what I built, configured, fixed, tested, or learned. Avoid visitor-facing filler, inflated claims, and generic portfolio language.
+- Mobile layout matters as much as desktop. A page is not approved from one desktop and one phone screenshot.
+
+## Independent Critic Pass
+
+Before recommending publication, review the site as a skeptical employer and as a mobile QA reviewer. Do not approve your own draft by default.
+
+- Check every public route at 320, 360/375, 390/430, 768, 1180, and 1440 pixels wide.
+- Inspect the first viewport and every major scrolled section, including all project galleries.
+- Reject clipped, stretched, blurry, stale, placeholder, generated-looking, or poorly framed screenshots.
+- Reject copy that sounds like the site was made for Mochi instead of work Mochi completed.
+- Check navigation, filters, links, controls, image loading, console errors, horizontal overflow, and extensionless URLs.
+- Record concrete failures by route, viewport, section, and element. "Looks good" is not evidence.
+- Re-run the same checks on the deployed public site after cache refresh.
 
 ## Image Generation Brief
 
@@ -58,5 +71,5 @@ Reusable prompts:
 2. Add or update cards with dates and safe links.
 3. Capture clean screenshots at desktop and mobile sizes.
 4. Replace poor screenshots with generated concept previews only when necessary.
-5. Run local static checks and mobile screenshots.
-6. Deploy only after live checks return 200 and the page has no obvious overflow.
+5. Run the complete local route and viewport matrix, including every major scrolled section and an independent critic pass.
+6. Deploy only after local checks pass, then repeat the same matrix on the public site before approval.

@@ -152,8 +152,7 @@ const setupViewportVideos = () => {
       const video = entry.target;
       if (entry.isIntersecting) {
         video.play().catch(() => {});
-      } else {
-        video.pause();
+        observer.unobserve(video);
       }
     });
   }, { rootMargin: "240px 0px", threshold: 0.05 });

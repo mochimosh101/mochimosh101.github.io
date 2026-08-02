@@ -1411,7 +1411,7 @@ body::before {
   display: block;
   margin: 10px 0;
   max-width: 100%;
-  font-size: clamp(1.45rem, 2.35vw, 2.15rem);
+  font-size: clamp(1.28rem, 1.95vw, 1.75rem);
   line-height: 1.04;
   overflow-wrap: anywhere;
   word-break: normal;

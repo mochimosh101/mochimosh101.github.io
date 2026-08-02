@@ -181,6 +181,7 @@
     }
 
     .chip {
+      min-width: 0;
       border: 1px solid var(--line);
       background: #101925;
       color: var(--text);
@@ -421,8 +422,26 @@
       .home { padding: 10px; }
       .controls-grid { grid-template-columns: 1fr; }
       .table-head { align-items: flex-start; flex-direction: column; }
-      .toolbar { width: 100%; justify-content: stretch; }
-      .toolbar .btn, .toolbar select { flex: 1 1 145px; }
+      .toolbar {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-content: stretch;
+      }
+      .toolbar .btn, .toolbar select {
+        width: 100%;
+        min-width: 0;
+        white-space: normal;
+      }
+      .chips {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .chip {
+        width: 100%;
+        white-space: normal;
+        overflow-wrap: anywhere;
+      }
       .grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 9px;
